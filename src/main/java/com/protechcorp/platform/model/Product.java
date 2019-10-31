@@ -4,11 +4,15 @@ package com.protechcorp.platform.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+
 
 @Entity
 @Table(name="products")
@@ -37,6 +41,14 @@ public class Product {
 	@NotEmpty(message = "You need to specify a location.")
 	@Column(name = "location", nullable = false)
 	private String location;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name = "category_id", nullable = false)
+	private Category category;
+	
+	@ManyToOne(fetch=FetchType.LAZY )
+	@JoinColumn(name="family_id", nullable = false)
+	private Family family;
 
 	public Long getId() {
 		return id;
