@@ -1,6 +1,6 @@
 package com.protechcorp.platform.model;
 
-import java.util.Date;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,6 +33,10 @@ public class Product {
 	@NotEmpty(message = "You need to specify a description.")
 	@Column(name = "description", nullable = false)
 	private String description;
+	
+	@NotEmpty(message = "You need to specify a location.")
+	@Column(name = "location", nullable = false)
+	private String location;
 
 	public Long getId() {
 		return id;
@@ -72,6 +76,14 @@ public class Product {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
 	}
 	
 	
