@@ -41,6 +41,10 @@ public class Product {
 	@Column(name = "location", nullable = false)
 	private String location;
 	
+	@NotEmpty(message = "You need to specify a quantity.")
+	@Column(name = "quantity", nullable = false)
+	private String quantity;
+	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "category_id", nullable = false)
 	private Category category;
@@ -48,6 +52,10 @@ public class Product {
 	@ManyToOne(fetch=FetchType.LAZY )
 	@JoinColumn(name="family_id", nullable = false)
 	private Family family;
+	
+	@ManyToOne(fetch=FetchType.LAZY )
+	@JoinColumn(name="lot_id", nullable = false)
+	private Lot lot;
 
 	public Long getId() {
 		return id;
@@ -96,6 +104,32 @@ public class Product {
 	public void setLocation(String location) {
 		this.location = location;
 	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public Family getFamily() {
+		return family;
+	}
+
+	public void setFamily(Family family) {
+		this.family = family;
+	}
+
+	public Lot getLot() {
+		return lot;
+	}
+
+	public void setLot(Lot lot) {
+		this.lot = lot;
+	}
+	
+	
 	
 	
 
