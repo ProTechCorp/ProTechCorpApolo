@@ -101,6 +101,14 @@ public class Product {
 		return location;
 	}
 
+	public String getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(String quantity) {
+		this.quantity = quantity;
+	}
+
 	public void setLocation(String location) {
 		this.location = location;
 	}

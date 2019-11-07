@@ -29,5 +29,38 @@ public class WareHouse {
 	@Column(name = "description", nullable = false, length = 50)
 	private String description;
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Long getRuc() {
+		return ruc;
+	}
+
+	public void setRuc(Long ruc) {
+		this.ruc = ruc;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	
 
 }
