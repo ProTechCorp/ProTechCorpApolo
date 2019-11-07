@@ -19,7 +19,7 @@ public class CategoryController {
 	@Autowired
 	private CategoryService categoryService;
 	
-	@GetMapping("/add")
+	@GetMapping("/new")
 	public String newCategory(Model model) {
 		return "/event/add";
 	}
