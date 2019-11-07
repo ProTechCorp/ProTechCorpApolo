@@ -75,6 +75,7 @@ local.properties
 target/
 
 ### Maven ###
+
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
@@ -85,5 +86,5 @@ buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
 .flattened-pom.xml
-
+src/main/resources/application.yml
 # End of https://www.gitignore.io/api/maven,eclipse,java-web
