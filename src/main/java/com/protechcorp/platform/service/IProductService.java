@@ -1,5 +1,11 @@
 package com.protechcorp.platform.service;
 
-public interface IProductService {
+
+
+import com.protechcorp.platform.model.Product;
+
+public interface IProductService extends CrudService<Product>{
+
+
 
 }

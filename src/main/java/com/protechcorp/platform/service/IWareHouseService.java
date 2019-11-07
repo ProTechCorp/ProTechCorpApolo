@@ -1,5 +1,7 @@
 package com.protechcorp.platform.service;
 
-public interface IWareHouseService {
+import com.protechcorp.platform.model.WareHouse;
+
+public interface IWareHouseService extends CrudService<WareHouse> {
 
 }

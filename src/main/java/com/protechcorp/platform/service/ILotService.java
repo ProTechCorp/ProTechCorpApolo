@@ -1,5 +1,9 @@
 package com.protechcorp.platform.service;
 
-public interface ILotService {
+import com.protechcorp.platform.model.Lot;
+
+public interface ILotService extends CrudService<Lot> {
+
+
 
 }
