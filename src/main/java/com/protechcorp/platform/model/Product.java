@@ -56,6 +56,8 @@ public class Product {
 	@ManyToOne(fetch=FetchType.LAZY )
 	@JoinColumn(name="lot_id", nullable = false)
 	private Lot lot;
+	
+
 
 	public Long getId() {
 		return id;
