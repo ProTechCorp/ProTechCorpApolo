@@ -1,19 +1,20 @@
 package com.protechcorp.platform.controller;
 
-import javax.validation.Valid;
+import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.support.SessionStatus;
 
 import com.protechcorp.platform.model.Category;
 import com.protechcorp.platform.service.CategoryService;
+
+
 
 @Controller
 @RequestMapping("/categories")
@@ -22,61 +23,63 @@ public class CategoryController {
 	@Autowired
 	private CategoryService categoryService;
 	
-	@GetMapping("/new")
-	public String newCategory(Model model) {
-		model.addAttribute("category", new Category());
-		return "/category/category";
-	}
-	
-	@PostMapping("/save")
-	public String saveCategory(@Valid Category category,
-			BindingResult result,
-			Model model,
-			SessionStatus  status) throws Exception{
-		
-		if(result.hasErrors()) {
-			return "/category/category";
-		} else {
-			if(categoryService.save(category) == category) {
-				
-			}else {
-				model.addAttribute("message", "Already Exist");
-				model.addAttribute("message", "Successfully saved.");
-				status.setComplete();
-			}
-		}
-		model.addAttribute("listCategories", categoryService.getClass());
-		return "/category/listCategories";
-	}
-	
 	@GetMapping("/list")
-	public String listCategories(Model model) {
+	public String listarCategory(Model model) {
+		
 		try {
-			model.addAttribute("category", new Category());
-			model.addAttribute("listCategories", categoryService.getClass());
+			model.addAttribute("listCategory", categoryService.findAll());
 		} catch (Exception e) {
-			model.addAttribute("error", e.getMessage());
+			model.addAttribute("error",e.getMessage());
 		}
-		return "/category/listCategories";
-		
-		
+		return "/category/list";
 	}
 	
+	@GetMapping("/add")
+	public String agregarCaegory(Model model) {
+		
+		
+		return "/category/add";
+	}
 	
-	@RequestMapping("/delete")
-	public String deleteCategory(Model model, @RequestParam("id") Long id) {
+	@PostMapping("/add")
+	public String agregarCategory(Model model,String name,String description) {
+			
+		
+			
+			
+			Category ev1=new Category();
+			ev1.setName(name);
+			ev1.setDescription(description);
+			
+			
+			try {
+				model.addAttribute("registerCategory", categoryService.save(ev1));
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		
+		return "/category/add";
+	}
+	
+	@GetMapping("/detail/{id}")
+	public String detailCategory(@PathVariable(value="id") Long id,Model model ) {
 		try {
-			categoryService.deleteById(id);
-			model.addAttribute("message", "Successfully Delleted");
+			Optional<Category> category = categoryService.findById(id);
+			
+			if(!category.isPresent()) {
+				model.addAttribute("info", "Category doesn't exist");
+				return "redirect:/category/list";
+			}
+			else
+				model.addAttribute("category",category.get());
+		} catch (Exception e) {
+			model.addAttribute("error",e.getMessage());
 		}
-		catch(Exception e){
-			model.addAttribute("message", "Category cannot be deleted.");
-		}
-		model.addAttribute("listCategories", categoryService.getClass());
-		return "/category/listCategories";
-	
+		
+		return "/category/detail";
 	}
-	
 
 }
 
