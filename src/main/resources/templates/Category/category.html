@@ -10,7 +10,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>2019-02</title>
+<title>ProTechCorp</title>
 
 <!-- Custom fonts for this template-->
 <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
@@ -37,59 +37,45 @@
 			<!-- Sidebar - Brand -->
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
-				th:href="@{/categories/list}">
+				th:href="@{/panel}">
 				<div class="sidebar-brand-icon rotate-n-15">
 					<i class="fas fa-leaf"></i>
 				</div>
-				<div class="sidebar-brand-text mx-3">App</div>
+				<div class="sidebar-brand-text mx-3">ProTechCorp</div>
 			</a>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider my-0">
 
+			<!-- Nav Item - Dashboard -->
+			<li class="nav-item"><a class="nav-link" href="index.html">
+					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Panel</span>
+			</a></li>
 
 
 			<!-- Nav Item - Pages Collapse Menu -->
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
-				data-target="#collapseTwo"
-				aria-expanded="false" aria-controls="collapseTwo"> <i
-					class="fas fa-fw fa-cog"></i> <span>Men&uacute;</span>
+				data-toggle="collapse" data-target="#collapseTwo"
+				aria-expanded="true" aria-controls="collapseTwo"> <i
+					class="fas fa-fw fa-cog"></i> <span>Mantenimientos</span>
 			</a>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/categories/list}">Categorías</a>
+						<a class="collapse-item" th:href="@{/categories}">Categorias</a>
 					</div>
 				</div>
-				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-					data-parent="#accordionSidebar">
-					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/products/list}">Productos</a>
-					</div>
-				</div></li>
+				</li>
 
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
-				 data-target="#collapseTwo"
+				data-toggle="collapse" data-target="#collapseTwo"
 				aria-expanded="true" aria-controls="collapseTwo"> <i
-					class="fas fa-fw fa-cog"></i> <span>Orden</span>
+					class="fas fa-fw fa-cog"></i> <span>Registros</span>
 			</a>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/}">Órdenes</a>
-					</div>
-				</div></li>
-
-
-			<li class="nav-item"><a class="nav-link collapsed" href="#"
-				 data-target="#collapseTwo"
-				aria-expanded="true" aria-controls="collapseTwo"> <i
-					class="fas fa-fw fa-cog"></i> <span>Reporte</span>
-			</a>
-				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-					data-parent="#accordionSidebar">
-					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/}">Categor&iacute;as</a>
+						<a class="collapse-item" th:href="@{/products}">Orden de Compra</a>
 					</div>
 				</div></li>
 
@@ -97,7 +83,9 @@
 			<hr class="sidebar-divider">
 
 			<!-- Sidebar Toggler (Sidebar) -->
-			
+			<div class="text-center d-none d-md-inline">
+				<button class="rounded-circle border-0" id="sidebarToggle"></button>
+			</div>
 
 		</ul>
 		<!-- End of Sidebar -->
@@ -119,7 +107,19 @@
 					</button>
 
 					<!-- Topbar Search -->
-					
+					<form
+						class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+						<div class="input-group">
+							<input type="text" class="form-control bg-light border-0 small"
+								placeholder="Buscar por..." aria-label="Search"
+								aria-describedby="basic-addon2">
+							<div class="input-group-append">
+								<button class="btn btn-primary" type="button">
+									<i class="fas fa-search fa-sm"></i>
+								</button>
+							</div>
+						</div>
+					</form>
 
 					<!-- Topbar Navbar -->
 					<ul class="navbar-nav ml-auto">
@@ -138,8 +138,8 @@
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <span
-								class="mr-2 d-none d-lg-inline text-gray-600 small"><img th:src="@{/img/logout.png}" width="30" height="30" alt="logo" align="middle"></img></span> 
-							
+								class="mr-2 d-none d-lg-inline text-gray-600 small">
+								Eduardo Estela Pardo</span>
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -164,41 +164,33 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 class="h3 mb-4 text-gray-800">Categoría</h1>
+					<h1 class="h3 mb-4 text-gray-800">Categorias</h1>
+
+					<a th:href="@{/categories/new/}" class="btn btn-primary btn-xs">Nuevo</a>
 
 					<hr class="sidebar-divider">
-					<div th:object="${category}" th:remove="tag">
-						<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger"
-							role="alert">
-							<li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
-						</ul>
-					</div>
 
-					<form th:action="@{/categories/save}" th:object="${category}"
-						method="post">
-						<div class="form-group row">
-							<label for="name" class="col-sm-2 col-form-label">Categoría</label>
-							<div class="col-sm-6">
-								<input type="text" th:field="*{name}" class="form-control"
-									th:errorclass="'form-control alert-danger'" /> <small
-									class="form-text text-danger"
-									th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></small>
-							</div>
-						</div>
+					<table class="table table-striped">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Nombre</th>
+								<th scope="col">Descripcion</th>
+								<th scope="col">Editar</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="cate: ${categories}">
+								<td th:text="${cate.id}">Oranges</td>
+								<td th:text="${cate.name}">Oranges</td>
+								<td th:text="${cate.description}">Oranges</td>
 
-
-
-						<div class="form-group row">
-							<div class="col-sm-6">
-								<input type="submit" value="Guardar" class="btn btn-secondary"></input>
-								<a href="/categories/list" class="btn btn-danger">Cancelar</a>
-							</div>
-						</div>
-						<p th:text="${message}" class="form-text text-danger"></p>
-
-					</form>
-
-
+								<td><a href="#"
+									th:href="@{'/categories/edit/' + ${cate.id}}" th:text="'edit'"
+									class="btn btn-primary">Editar</a></td>
+							</tr>
+						</tbody>
+					</table>
 
 
 				</div>
@@ -211,7 +203,7 @@
 			<footer class="sticky-footer bg-white">
 				<div class="container my-auto">
 					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; Web 201902</span>
+						<span>Copyright &copy; Rosatel 2019</span>
 					</div>
 				</div>
 			</footer>
@@ -242,11 +234,11 @@
 					</button>
 				</div>
 				<div class="modal-body">Seleccione "Cerrar sesión" a
-					continuación si está listo para finalizar su sesión actual</div>
+					continuación si está listo para finalizar su sesión actual.</div>
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
 						data-dismiss="modal">Cancelar</button>
-					<a class="btn btn-primary" th:href="@{/categories/index}">Cerrar Sesión</a>
+					<a class="btn btn-primary" th:href="@{/}">Cerrar sesión</a>
 				</div>
 			</div>
 		</div>

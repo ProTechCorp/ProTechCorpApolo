@@ -1,42 +1,46 @@
-package com.protechcorp.platform.service;
+package com.protechcorp.platform.service.impl;
 
 import java.util.List;
 import java.util.Optional;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.protechcorp.platform.model.Category;
-import com.protechcorp.platform.repository.CategoryRepository;
+import com.protechcorp.platform.repository.ICategoryRepository;
+import com.protechcorp.platform.service.ICategoryService;
 
 @Service
-public class CategoryServiceImpl implements CategoryService {
+public class CategoryService implements ICategoryService {
 	
 	@Autowired
-	private CategoryRepository categoryRepository;
+	private ICategoryRepository categoryRepository;
 	
+	@Transactional
 	@Override
-	public Category save(Category t) throws Exception{
+	public Category save(Category entity) throws Exception{
 		
-		return categoryRepository.save(t);
+		return categoryRepository.save(entity);
 	}
 
 	@Override
 	public void deleteById(Long id) throws Exception {
-		// TODO Auto-generated method stub
+		
 		categoryRepository.deleteById(id);
 		
 	}
 
 	@Override
 	public Optional<Category> findById(Long id) throws Exception {
-		// TODO Auto-generated method stub
+		
 		return categoryRepository.findById(id);
 	}
 
 	@Override
 	public List<Category> findAll() throws Exception {
-		// TODO Auto-generated method stub
+		
 		return categoryRepository.findAll();
 	}
 

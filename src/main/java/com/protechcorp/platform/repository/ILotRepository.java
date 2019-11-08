@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.protechcorp.platform.model.Lot;
 
 @Repository
-public interface LotRepository extends JpaRepository<Lot, Long> {
+public interface ILotRepository extends JpaRepository<Lot, Long> {
 
 }

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.protechcorp.platform.model.WareHouse;
 
 @Repository
-public interface WareHouseRepository extends JpaRepository<WareHouse, Long> {
+public interface IWareHouseRepository extends JpaRepository<WareHouse, Long> {
 
 }

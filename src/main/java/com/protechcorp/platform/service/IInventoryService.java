@@ -2,6 +2,6 @@ package com.protechcorp.platform.service;
 
 import com.protechcorp.platform.model.Inventory;
 
-public interface InventoryService extends CrudService<Inventory> {
+public interface IInventoryService extends CrudService<Inventory> {
 
 }

@@ -1,4 +1,4 @@
-package com.protechcorp.platform.service;
+package com.protechcorp.platform.service.impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,12 +6,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.protechcorp.platform.model.Inventory;
-import com.protechcorp.platform.repository.InventoryRepository;
+import com.protechcorp.platform.repository.IInventoryRepository;
+import com.protechcorp.platform.service.IInventoryService;
 
-public class InventoryServiceImpl implements InventoryService {
+public class InventoryService implements IInventoryService {
 	
 	@Autowired
-	private InventoryRepository inventoryRepository;
+	private IInventoryRepository inventoryRepository;
 
 	@Override
 	public Inventory save(Inventory t) throws Exception {

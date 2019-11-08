@@ -1,11 +1,12 @@
 package com.protechcorp.platform.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.protechcorp.platform.model.Category;
 
 
-
-public interface CategoryRepository extends JpaRepository<Category, Long> {
+@Repository
+public interface ICategoryRepository extends JpaRepository<Category, Long> {
 
 }
