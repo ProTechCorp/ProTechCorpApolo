@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.protechcorp.platform.model.Family;
 import com.protechcorp.platform.repository.IFamilyRepository;
 import com.protechcorp.platform.service.IFamilyService;
 
+@Service
 public class FamilyService implements IFamilyService {
 
 	@Autowired
