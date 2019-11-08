@@ -36,6 +36,8 @@ public class LotController {
 		return "lot/lot";
 	}
 	
+	
+	
 	@GetMapping(value="/new")
 	public String neLot(Model model) {
 		Lot lot= new Lot();
