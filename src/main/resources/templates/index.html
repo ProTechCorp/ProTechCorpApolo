@@ -65,6 +65,13 @@
 						<a class="collapse-item" th:href="@{/categories}">Categorias</a>
 					</div>
 				</div>
+				
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/categories}">Lots</a>
+					</div>
+				</div>
 				</li>
 
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
@@ -75,7 +82,7 @@
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/products}">Orden de Compra</a>
+						<a class="collapse-item" th:href="@{/products}">Productos</a>
 					</div>
 				</div></li>
 
@@ -155,7 +162,7 @@
 								<a class="dropdown-item" href="#" data-toggle="modal"
 									data-target="#logoutModal"> <i
 									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									Cerrar sesión
+									Cerrar sesiÃ³n
 								</a>
 							</div></li>
 
@@ -203,19 +210,19 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">¿Listo para
+					<h5 class="modal-title" id="exampleModalLabel">Â¿Listo para
 						salir?</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
-						<span aria-hidden="true">×</span>
+						<span aria-hidden="true">Ã—</span>
 					</button>
 				</div>
-				<div class="modal-body">Seleccione "Cerrar sesión" a
-					continuación si está listo para finalizar su sesión actual.</div>
+				<div class="modal-body">Seleccione "Cerrar sesiÃ³n" a
+					continuaciÃ³n si estÃ¡ listo para finalizar su sesiÃ³n actual.</div>
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
 						data-dismiss="modal">Cancelar</button>
-					<a class="btn btn-primary" th:href="@{/}">Cerrar sesión</a>
+					<a class="btn btn-primary" th:href="@{/}">Cerrar sesiÃ³n</a>
 				</div>
 			</div>
 		</div>
