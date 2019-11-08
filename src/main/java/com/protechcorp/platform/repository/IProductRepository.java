@@ -3,9 +3,9 @@ package com.protechcorp.platform.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.protechcorp.platform.model.WareHouse;
+import com.protechcorp.platform.model.Product;
 
 @Repository
-public interface WareHouseRepository extends JpaRepository<WareHouse, Long> {
+public interface IProductRepository extends JpaRepository<Product, Long>{
 
 }

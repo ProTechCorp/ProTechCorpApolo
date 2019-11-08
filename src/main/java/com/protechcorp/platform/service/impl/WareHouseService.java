@@ -1,4 +1,4 @@
-package com.protechcorp.platform.service;
+package com.protechcorp.platform.service.impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,12 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.protechcorp.platform.model.WareHouse;
-import com.protechcorp.platform.repository.WareHouseRepository;
+import com.protechcorp.platform.repository.IWareHouseRepository;
+import com.protechcorp.platform.service.IWareHouseService;
 
 @Service
-public class WareHouseServiceImpl implements IWareHouseService {
+public class WareHouseService implements IWareHouseService {
 @Autowired
-private WareHouseRepository warehouseRepository;
+private IWareHouseRepository warehouseRepository;
 
 @Override
 public WareHouse save(WareHouse t) throws Exception {

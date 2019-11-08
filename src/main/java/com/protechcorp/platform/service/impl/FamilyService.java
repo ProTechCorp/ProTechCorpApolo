@@ -1,4 +1,4 @@
-package com.protechcorp.platform.service;
+package com.protechcorp.platform.service.impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,12 +6,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.protechcorp.platform.model.Family;
-import com.protechcorp.platform.repository.FamilyRepository;
+import com.protechcorp.platform.repository.IFamilyRepository;
+import com.protechcorp.platform.service.IFamilyService;
 
-public class FamilyServiceImpl implements FamilyService {
+public class FamilyService implements IFamilyService {
 
 	@Autowired
-	private FamilyRepository familyRepository;
+	private IFamilyRepository familyRepository;
 	
 	@Override
 	public Family save(Family t) throws Exception {

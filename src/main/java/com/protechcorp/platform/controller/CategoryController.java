@@ -1,7 +1,13 @@
 package com.protechcorp.platform.controller;
 
+<<<<<<< HEAD
 import java.util.Optional;
 
+=======
+import java.util.List;
+
+import javax.validation.Valid;
+>>>>>>> development
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,19 +16,28 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+<<<<<<< HEAD
+=======
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+>>>>>>> development
 
 import com.protechcorp.platform.model.Category;
-import com.protechcorp.platform.service.CategoryService;
+import com.protechcorp.platform.service.ICategoryService;
 
 
 
 @Controller
+@SessionAttributes("category")
 @RequestMapping("/categories")
 public class CategoryController {
 	
 	@Autowired
-	private CategoryService categoryService;
+	private ICategoryService categoryService;
 	
+<<<<<<< HEAD
 	@GetMapping("/list")
 	public String listarCategory(Model model) {
 		
@@ -36,9 +51,46 @@ public class CategoryController {
 	
 	@GetMapping("/add")
 	public String agregarCaegory(Model model) {
+=======
+	@GetMapping
+	public String listCategories(Model model) throws Exception {
 		
+		List<Category> categories = categoryService.findAll();
+		model.addAttribute("categories", categories);
 		
+		return "category/category";
+	}
+	
+	@GetMapping(value="/new")
+	public String newCategory(Model model) {
+		
+		Category category = new Category();
+		model.addAttribute("category",category);
+		model.addAttribute("title", "New Category");
+		return "category/form";
+	}
+	
+	@PostMapping(value="/save")
+	public String saveCategory(@Valid Category category,
+			BindingResult result, Model model,
+			RedirectAttributes flash, 
+			SessionStatus status) throws Exception{
+		if(result.hasErrors()) {
+			model.addAttribute("title","Save Category");
+			return "category/form";
+		}
+>>>>>>> development
+		
+		String mensajeFlash= (category.getId()!= null)? "Edit category" : "Save Category";
+		
+<<<<<<< HEAD
 		return "/category/add";
+=======
+		categoryService.save(category);
+		status.setComplete();
+		flash.addFlashAttribute("success",mensajeFlash);
+		return "redirect:/categories";
+>>>>>>> development
 	}
 	
 	@PostMapping("/add")

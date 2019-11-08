@@ -5,7 +5,7 @@ import java.util.Optional;
 
 public interface CrudService<T> {
 	
-	public T save(T t) throws Exception;
+	public T save(T entity) throws Exception;
 	public void deleteById(Long id) throws Exception;
 	public Optional<T> findById(Long id) throws Exception;
 	public List<T> findAll() throws Exception;
