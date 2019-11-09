@@ -4,6 +4,7 @@ package com.protechcorp.platform.model;
 
 
 import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 
@@ -44,6 +45,9 @@ public class Lot {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+
+	
 
 	
 	
