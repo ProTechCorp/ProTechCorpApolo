@@ -18,7 +18,7 @@ public class LoginController {
 			@RequestParam(value = "logout", required = false) String logout, Model model, Principal principal,
 			RedirectAttributes flash) {
 		if (principal != null) {
-			return "redirect:/categories/list";
+			return "redirect:/panel";
 		}
 		if (error != null) {
 			model.addAttribute("error", "Login error: Incorrect username or password, please login again.");
