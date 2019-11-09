@@ -21,18 +21,13 @@ public class LoginController {
 			return "redirect:/panel";
 		}
 		if (error != null) {
-			model.addAttribute("error", "Login error: Incorrect username or password, please login again.");
+			model.addAttribute("error",
+					"Login error: Incorrect username or password, please login again.");
 		}
 		if (logout != null) {
-			model.addAttribute("success", "You have successfully logged out.");
+			model.addAttribute("success","You have successfully logged out.");
 		}
-
 		return "login";
 	}
-
-	/*@GetMapping("/register")
-	public String register() {
-		return "register";
-	}*/
 
 }
