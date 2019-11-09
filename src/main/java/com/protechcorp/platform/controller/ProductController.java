@@ -18,8 +18,14 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.protechcorp.platform.model.Category;
+import com.protechcorp.platform.model.Family;
+import com.protechcorp.platform.model.Location;
+import com.protechcorp.platform.model.Lot;
 import com.protechcorp.platform.model.Product;
 import com.protechcorp.platform.service.ICategoryService;
+import com.protechcorp.platform.service.IFamilyService;
+import com.protechcorp.platform.service.ILocationService;
+import com.protechcorp.platform.service.ILotService;
 import com.protechcorp.platform.service.IProductService;
 
 @Controller
@@ -29,6 +35,14 @@ public class ProductController {
 
 	@Autowired
 	private ICategoryService categoryService;
+	@Autowired
+	private IFamilyService familiService;
+	
+	@Autowired
+	private ILocationService locationService;
+	
+	@Autowired
+	private ILotService lotService;
 	@Autowired
 	private IProductService productService;
 	
@@ -45,6 +59,18 @@ public class ProductController {
 	List<Category> loadCategories() throws Exception{
 		return categoryService.findAll();
 	}
+	
+	List<Family> loadFamilies() throws Exception{
+		return familiService.findAll();
+	}
+	
+	List<Lot> loadLots() throws Exception{
+		return lotService.findAll();
+	}
+	
+	List<Location> loadLocations() throws Exception{
+		return locationService.findAll();
+	}
 
 	@GetMapping("/new")
 	public String newPorduct(Model model) throws Exception {
@@ -53,6 +79,9 @@ public class ProductController {
 		
 		model.addAttribute("product", product);
 		model.addAttribute("categories", loadCategories());
+		model.addAttribute("families",loadFamilies());
+		model.addAttribute("lots",loadLots());
+		model.addAttribute("locations",loadLocations());
 		
 		model.addAttribute("titel","New Product");
 		return "/product/form";

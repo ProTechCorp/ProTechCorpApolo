@@ -190,9 +190,9 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 class="h3 mb-4 text-gray-800">Categorias</h1>
+					<h1 class="h3 mb-4 text-gray-800">Familia</h1>
 
-					<a th:href="@{/categories/new/}" class="btn btn-primary btn-xs">Nuevo</a>
+					<a th:href="@{/families/new/}" class="btn btn-primary btn-xs">Nuevo</a>
 
 					<hr class="sidebar-divider">
 
@@ -206,13 +206,13 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="cate: ${categories}">
-								<td th:text="${cate.id}">Oranges</td>
-								<td th:text="${cate.name}">Oranges</td>
-								<td th:text="${cate.description}">Oranges</td>
+							<tr th:each="fam: ${families}">
+								<td th:text="${fam.id}">Oranges</td>
+								<td th:text="${fam.name}">Oranges</td>
+								<td th:text="${fam.description}">Oranges</td>
 
 								<td><a href="#"
-									th:href="@{'/categories/edit/' + ${cate.id}}" th:text="'edit'"
+									th:href="@{'/families/edit/' + ${fam.id}}" th:text="'edit'"
 									class="btn btn-primary">Editar</a></td>
 							</tr>
 						</tbody>
@@ -229,7 +229,7 @@
 			<footer class="sticky-footer bg-white">
 				<div class="container my-auto">
 					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; Rosatel 2019</span>
+						<span>Copyright &copy; ProTechCorp 2019</span>
 					</div>
 				</div>
 			</footer>
