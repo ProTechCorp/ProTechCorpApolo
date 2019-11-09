@@ -10,5 +10,4 @@ public interface CrudService<T> {
 	public Optional<T> findById(Long id) throws Exception;
 	public List<T> findAll() throws Exception;
 	
-
 }

@@ -11589,7 +11589,7 @@ a:focus {
 }
 
 .bg-login-image {
-  background: url("https://static.interbankbenefit.pe/public/web/images/marca/ficha-tecnica/rosatel-ficha-tecnica.png");
+  background: url("https://tse3.mm.bing.net/th?id=OIP.XVLljHnbIft81Tp5ttMdzQHaFj&pid=Api");
   background-position: center;
   background-size: cover;
 }
@@ -11624,13 +11624,13 @@ form.user .btn-user {
 
 .btn-google {
   color: #fff;
-  background-color: #ea4335;
+  background-color: #ff502f;
   border-color: #fff;
 }
 
 .btn-google:hover {
   color: #fff;
-  background-color: #e12717;
+  background-color: #ff502f;
   border-color: #e6e6e6;
 }
 
@@ -11641,14 +11641,14 @@ form.user .btn-user {
 
 .btn-google.disabled, .btn-google:disabled {
   color: #fff;
-  background-color: #ea4335;
+  background-color: #ff502f;
   border-color: #fff;
 }
 
 .btn-google:not(:disabled):not(.disabled):active, .btn-google:not(:disabled):not(.disabled).active,
 .show > .btn-google.dropdown-toggle {
   color: #fff;
-  background-color: #d62516;
+  background-color: #ff502f;
   border-color: #dfdfdf;
 }
 
@@ -11838,7 +11838,7 @@ form.user .btn-user {
   content: attr(data-text);
   position: absolute;
   left: 2px;
-  text-shadow: -1px 0 #e74a3b;
+  text-shadow: -1px 0 #ff502f;
   top: 0;
   color: #5a5c69;
   background: #f8f9fc;
