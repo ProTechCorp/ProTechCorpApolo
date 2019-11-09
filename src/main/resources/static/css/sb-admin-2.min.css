@@ -11807,19 +11807,19 @@ opacity
 }
 
 .bg-login-image {
-	background: url("https://static.interbankbenefit.pe/public/web/images/marca/ficha-tecnica/rosatel-ficha-tecnica.png");
+	background: url("https://scontent.flim1-1.fna.fbcdn.net/v/t1.15752-9/75407677_1186499291543725_161940603729346560_n.png?_nc_cat=101&_nc_oc=AQkXsFp-Jjr-vNtM0dYWV53-MK7vnj5hFGdxwx4TICdEamgsWu1Soiy0qEjYsCKvvCw&_nc_ht=scontent.flim1-1.fna&oh=1884972c994a8a2c7be63d9b4e43fcf2&oe=5E55DB11");
 	background-position: center;
 	background-size: cover
 }
 
 .bg-register-image {
-	background: url("https://static.interbankbenefit.pe/public/web/images/marca/ficha-tecnica/rosatel-ficha-tecnica.png");
+	background: url("https://scontent.flim1-1.fna.fbcdn.net/v/t1.15752-9/75407677_1186499291543725_161940603729346560_n.png?_nc_cat=101&_nc_oc=AQkXsFp-Jjr-vNtM0dYWV53-MK7vnj5hFGdxwx4TICdEamgsWu1Soiy0qEjYsCKvvCw&_nc_ht=scontent.flim1-1.fna&oh=1884972c994a8a2c7be63d9b4e43fcf2&oe=5E55DB11");
 	background-position: center;
 	background-size: cover
 }
 
 .bg-password-image {
-	background: url(https://source.unsplash.com/oWTW-jNGl9I/600x800);
+	background: url(https://tse3.mm.bing.net/th?id=OIP.XVLljHnbIft81Tp5ttMdzQHaFj&pid=Api);
 	background-position: center;
 	background-size: cover
 }
@@ -11842,13 +11842,13 @@ form.user .btn-user {
 
 .btn-google {
 	color: #fff;
-	background-color: #ea4335;
+	background-color: #ff502f;
 	border-color: #fff
 }
 
 .btn-google:hover {
 	color: #fff;
-	background-color: #e12717;
+	background-color: #ff502f;
 	border-color: #e6e6e6
 }
 
@@ -11859,14 +11859,14 @@ form.user .btn-user {
 
 .btn-google.disabled, .btn-google:disabled {
 	color: #fff;
-	background-color: #ea4335;
+	background-color: #ff502f;
 	border-color: #fff
 }
 
 .btn-google:not (:disabled ):not (.disabled ).active, .btn-google:not (:disabled
 	 ):not (.disabled ):active, .show>.btn-google.dropdown-toggle {
 	color: #fff;
-	background-color: #d62516;
+	background-color: #ff502f;
 	border-color: #dfdfdf
 }
 
