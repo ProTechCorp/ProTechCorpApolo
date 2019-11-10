@@ -44,4 +44,10 @@ public class ProductService implements IProductService {
 		return productRepository.findAll();
 	}
 
+	@Override
+	public List<Product> findByLocation(String nameLocation) {
+		
+		return productRepository.findByLocation(nameLocation);
+	}
+
 }
