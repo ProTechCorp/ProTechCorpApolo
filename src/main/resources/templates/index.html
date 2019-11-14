@@ -48,8 +48,8 @@
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Dashboard -->
-			<li class="nav-item"><a class="nav-link" href="index.html">
-					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Panel</span>
+			<li class="nav-item"><a class="nav-link" th:href="@{/panel}">
+					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Panel</span> 
 			</a></li>
 
 
@@ -57,35 +57,34 @@
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-toggle="collapse" data-target="#collapseTwo"
 				aria-expanded="true" aria-controls="collapseTwo"> <i
-					class="fas fa-fw fa-cog"></i> <span>Maintenace</span>
+					class="fas fa-fw fa-cog"></i> <span>Mantenimiento</span>
 			</a>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/categories}">Category</a>
+						<a class="collapse-item" th:href="@{/categories}">Categoria</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/lots}">Lot</a>
+						<a class="collapse-item" th:href="@{/lots}">Lote</a>
 					</div>
 				</div>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/families}">Family</a>
+						<a class="collapse-item" th:href="@{/families}">Familia</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<a class="collapse-item" th:href="@{/locations}">Location</a>
 					</div>
-				</div>
-				</li>
+				</div></li>
 
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-toggle="collapse" data-target="#collapseTwo"
@@ -94,18 +93,17 @@
 			</a>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
-					
+
 					<div class="bg-white py-2 collapse-inner rounded">
 						<a class="collapse-item" th:href="@{/products}">Product</a>
 					</div>
-					
-						<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-					data-parent="#accordionSidebar">
-					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/reports/locations}">Location</a>
-					</div>
-				</div>
-				</li>
+
+					<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+						data-parent="#accordionSidebar">
+						<div class="bg-white py-2 collapse-inner rounded">
+							<a class="collapse-item" th:href="@{/reports/locations}">Location</a>
+						</div>
+					</div></li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
