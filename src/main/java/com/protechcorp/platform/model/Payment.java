@@ -1,8 +1,10 @@
 package com.protechcorp.platform.model;
 
-import java.util.Date;
+
+
 
 import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,6 +12,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
+<<<<<<< HEAD:src/main/java/com/protechcorp/platform/model/Payment.java
+=======
+
+
+>>>>>>> 989f937e388d9f1b1fda28e0e0c7a7b77f330588:src/main/java/com/protechcorp/platform/model/Lot.java
 @Entity
 @Table(name="payments")
 public class Payment {
@@ -22,9 +29,14 @@ public class Payment {
 	@Column(name = "monthlyPayment", nullable = false, length = 50)
 	private Long monthlyPayment;
 	
+<<<<<<< HEAD:src/main/java/com/protechcorp/platform/model/Payment.java
 	@Column(name = "entered_at")
 	private Date enteredAt;
 
+=======
+
+	
+>>>>>>> 989f937e388d9f1b1fda28e0e0c7a7b77f330588:src/main/java/com/protechcorp/platform/model/Lot.java
 	public Long getId() {
 		return id;
 	}
@@ -41,13 +53,9 @@ public class Payment {
 		this.monthlyPayment = monthlyPayment;
 	}
 
-	public Date getEnteredAt() {
-		return enteredAt;
-	}
 
-	public void setEnteredAt(Date enteredAt) {
-		this.enteredAt = enteredAt;
-	}
+	
+
 	
 	
 }
