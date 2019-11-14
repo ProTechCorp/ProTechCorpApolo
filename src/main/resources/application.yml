@@ -2,11 +2,7 @@ spring:
   datasource:    url: jdbc:postgresql://localhost:5432/ProTechCorp
     username: postgres
 
-<<<<<<< HEAD
-    password: admin
-=======
-    password: Comando97
->>>>>>> 989f937e388d9f1b1fda28e0e0c7a7b77f330588
+    password: angelo11
 
 
     driver-class-name: org.postgresql.Driver
