@@ -1,25 +1,21 @@
 package com.protechcorp.platform.model;
 
-import java.util.Date;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="inventorytransactions")
-public class InventoryTransaction {
-
+@Table(name = "authorities", uniqueConstraints = { @UniqueConstraint(columnNames = { "user_id", "authority" }) })
+public class Role {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column(name = "inventoryDate")
-	private Date inventoryDate;
+
+	private String authority;
 
 	public Long getId() {
 		return id;
@@ -29,13 +25,11 @@ public class InventoryTransaction {
 		this.id = id;
 	}
 
-	public Date getInventoryDate() {
-		return inventoryDate;
+	public String getAuthority() {
+		return authority;
 	}
 
-	public void setInventoryDate(Date inventoryDate) {
-		this.inventoryDate = inventoryDate;
+	public void setAuthority(String authority) {
+		this.authority = authority;
 	}
-	
-	
 }
