@@ -3,10 +3,14 @@ spring:
     username: postgres
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     password: admin
 =======
     password: Comando97
 >>>>>>> Eduardo
+=======
+    password: angelo11
+>>>>>>> bcbf3e126785d187eefd8279dc46d49f143b28b6
 
 
     driver-class-name: org.postgresql.Driver

@@ -58,8 +58,6 @@ public class Product {
 	@JoinColumn(name="lot_id", nullable = false)
 	private Lot lot;
 	
-
-
 	public Long getId() {
 		return id;
 	}
