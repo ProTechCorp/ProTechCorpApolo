@@ -10,7 +10,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>ProTechCorp</title>
+<title>Rosatel</title>
 
 <!-- Custom fonts for this template-->
 <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
@@ -57,38 +57,32 @@
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-toggle="collapse" data-target="#collapseTwo"
 				aria-expanded="true" aria-controls="collapseTwo"> <i
-					class="fas fa-fw fa-cog"></i> <span>Mantenimientos</span>
+					class="fas fa-fw fa-cog"></i> <span>Maintenace</span>
 			</a>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/categories}">Categorias</a>
+						<a class="collapse-item" th:href="@{/categories}">Category</a>
 					</div>
 				</div>
 				
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/lots}">Lotes</a>
+						<a class="collapse-item" th:href="@{/lots}">Lot</a>
 					</div>
 				</div>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/families}">Familia</a>
-					</div>
-				</div>
-				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-					data-parent="#accordionSidebar">
-					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/lots}">Lote</a>
+						<a class="collapse-item" th:href="@{/families}">Family</a>
 					</div>
 				</div>
 				
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/locations}">Ubicacion</a>
+						<a class="collapse-item" th:href="@{/locations}">Location</a>
 					</div>
 				</div>
 				</li>
@@ -96,15 +90,24 @@
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-toggle="collapse" data-target="#collapseTwo"
 				aria-expanded="true" aria-controls="collapseTwo"> <i
-					class="fas fa-fw fa-cog"></i> <span>Registros</span>
+					class="fas fa-fw fa-cog"></i> <span>Register</span>
 			</a>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
+					
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/products}">Productos</a>
+						<a class="collapse-item" th:href="@{/products}">Product</a>
 					</div>
-				</div></li>
-			
+					
+						<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/reports/locations}">Location</a>
+					</div>
+				</div>
+				
+				</li>
+
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
@@ -190,129 +193,32 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 class="h3 mb-4 text-gray-800">Orden De Compra</h1>
+					<h1 class="h3 mb-4 text-gray-800">Productos por Ubicacion</h1>
+
+
 
 					<hr class="sidebar-divider">
-					<div th:object="${product}" th:remove="tag">
-						<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger"
-							role="alert">
-							<li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
-						</ul>
+
+
+
+					<ul class="list-group" th:each="loc: ${locations}">
+						<li class="list-group-item"><a href="#"
+							th:href="@{'/reports/products/' + ${loc.name}}"
+							th:text="${loc.name}">Location</a></li>
+
+					</ul>
+
+					<hr class="sidebar-divider">
+					<div class="row justify-content-center">
+						<div class="card .col-xs-6 .col-sm-2" th:each="prod: ${products}">
+							<div class="card-body">
+								<h5 class="card-title" th:text="${prod.name}">Card title</h5>
+								<p class="card-text" th:text="${prod.description}">content.</p>
+								<p class="card-text" th:text="${prod.location.name}">content.</p>
+								<a href="#" class="btn btn-primary">Ubicar</a>
+							</div>
+						</div>
 					</div>
-
-					<form th:action="@{/products/save}" th:object="${product}"
-						method="post">
-						<div class="form-group row">
-							<label for="name" class="col-sm-2 col-form-label">Nombre de Producto</label>
-							<div class="col-sm-6">
-								<input type="text" th:field="*{name}" class="form-control"
-									th:errorclass="'form-control alert-danger'" /> <small
-									class="form-text text-danger"
-									th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></small>
-							</div>
-						</div>
-
-						<div class="form-group row">
-							<label for="description" class="col-sm-2 col-form-label">Descripcion</label>
-							<div class="col-sm-6">
-								<input type="text" th:field="*{description}"
-									class="form-control"
-									th:errorclass="'form-control alert-danger'" /> <small
-									class="form-text text-danger"
-									th:if="${#fields.hasErrors('description')}"
-									th:errors="*{description}"></small>
-							</div>
-						</div>
-
-						<div class="form-group row">
-							<label for="lpn" class="col-sm-2 col-form-label">Lpn</label>
-							<div class="col-sm-6">
-								<input type="text" th:field="*{lpn}" class="form-control"
-									th:errorclass="'form-control alert-danger'" /> <small
-									class="form-text text-danger"
-									th:if="${#fields.hasErrors('lpn')}" th:errors="*{lpn}"></small>
-							</div>
-						</div>
-
-
-						<div class="form-group row">
-							<label for="brand" class="col-sm-2 col-form-label">Marca</label>
-							<div class="col-sm-6">
-								<input type="text" th:field="*{brand}" class="form-control"
-									th:errorclass="'form-control alert-danger'" /> <small
-									class="form-text text-danger"
-									th:if="${#fields.hasErrors('brand')}" th:errors="*{brand}"></small>
-							</div>
-						</div>
-						
-						
-						<div class="form-group row">
-							<label for="quantity" class="col-sm-2 col-form-label">Cantidad</label>
-							<div class="col-sm-6">
-								<input type="text" th:field="*{quantity}" class="form-control"
-									th:errorclass="'form-control alert-danger'" /> <small
-									class="form-text text-danger"
-									th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"></small>
-							</div>
-						</div>
-						
-						<div class="form-group row">
-							<label for="color" class="col-sm-2 col-form-label">Location</label>
-							<div class="col-sm-6">
-								<select class="custom-select custom-select-sm"
-									th:field="*{location}">
-									<option value="">--</option>
-									<option th:each="location : ${locations}"
-										th:value="${location.id}" th:utext="${location.name}" />
-								</select>
-							</div>
-						</div>
-
-						<div class="form-group row">
-							<label for="color" class="col-sm-2 col-form-label">Categoria</label>
-							<div class="col-sm-6">
-								<select class="custom-select custom-select-sm"
-									th:field="*{category}">
-									<option value="">--</option>
-									<option th:each="category : ${categories}"
-										th:value="${category.id}" th:utext="${category.name}" />
-								</select>
-							</div>
-						</div>
-						
-						<div class="form-group row">
-							<label for="color" class="col-sm-2 col-form-label">Familia</label>
-							<div class="col-sm-6">
-								<select class="custom-select custom-select-sm"
-									th:field="*{family}">
-									<option value="">--</option>
-									<option th:each="family : ${families}"
-										th:value="${family.id}" th:utext="${family.name}" />
-								</select>
-							</div>
-						</div>
-						
-						<div class="form-group row">
-							<label for="color" class="col-sm-2 col-form-label">Lote</label>
-							<div class="col-sm-6">
-								<select class="custom-select custom-select-sm"
-									th:field="*{lot}">
-									<option value="">--</option>
-									<option th:each="lot : ${lots}"
-										th:value="${lot.id}" th:utext="${lot.description}" />
-								</select>
-							</div>
-						</div>
-
-
-						<div class="form-group row">
-							<div class="col-sm-6">
-								<input type="submit" th:value="${title}" class="btn btn-primary" />
-							</div>
-						</div>
-					</form>
-
-
 
 
 				</div>
@@ -325,7 +231,7 @@
 			<footer class="sticky-footer bg-white">
 				<div class="container my-auto">
 					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; ProTechCorp 2019</span>
+						<span>Copyright &copy; Rosatel 2019</span>
 					</div>
 				</div>
 			</footer>
@@ -356,11 +262,11 @@
 					</button>
 				</div>
 				<div class="modal-body">Seleccione "Cerrar sesión" a
-					continuación si está listo para finalizar su sesión actual</div>
+					continuación si está listo para finalizar su sesión actual.</div>
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
 						data-dismiss="modal">Cancelar</button>
-					<a class="btn btn-primary" th:href="@{/}">Cerrar Sesión</a>
+					<a class="btn btn-primary" th:href="@{/}">Cerrar sesión</a>
 				</div>
 			</div>
 		</div>

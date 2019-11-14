@@ -104,7 +104,6 @@
 						<a class="collapse-item" th:href="@{/products}">Productos</a>
 					</div>
 				</div></li>
-			
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
@@ -165,7 +164,8 @@
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <span
-								class="mr-2 d-none d-lg-inline text-gray-600 small">Eduardo Estela Pardo</span> 
+								class="mr-2 d-none d-lg-inline text-gray-600 small">
+								Eduardo Estela Pardo</span>
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -190,129 +190,31 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 class="h3 mb-4 text-gray-800">Orden De Compra</h1>
+					<h1 class="h3 mb-4 text-gray-800">Location</h1>
+
+					<a th:href="@{/locations/new/}" class="btn btn-primary btn-xs">New</a>
 
 					<hr class="sidebar-divider">
-					<div th:object="${product}" th:remove="tag">
-						<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger"
-							role="alert">
-							<li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
-						</ul>
-					</div>
 
-					<form th:action="@{/products/save}" th:object="${product}"
-						method="post">
-						<div class="form-group row">
-							<label for="name" class="col-sm-2 col-form-label">Nombre de Producto</label>
-							<div class="col-sm-6">
-								<input type="text" th:field="*{name}" class="form-control"
-									th:errorclass="'form-control alert-danger'" /> <small
-									class="form-text text-danger"
-									th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></small>
-							</div>
-						</div>
+					<table class="table table-striped">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Name</th>
+								<th scope="col">Edit</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="loc: ${locations}">
+								<td th:text="${loc.id}">Oranges</td>
+								<td th:text="${loc.name}">Oranges</td>
 
-						<div class="form-group row">
-							<label for="description" class="col-sm-2 col-form-label">Descripcion</label>
-							<div class="col-sm-6">
-								<input type="text" th:field="*{description}"
-									class="form-control"
-									th:errorclass="'form-control alert-danger'" /> <small
-									class="form-text text-danger"
-									th:if="${#fields.hasErrors('description')}"
-									th:errors="*{description}"></small>
-							</div>
-						</div>
-
-						<div class="form-group row">
-							<label for="lpn" class="col-sm-2 col-form-label">Lpn</label>
-							<div class="col-sm-6">
-								<input type="text" th:field="*{lpn}" class="form-control"
-									th:errorclass="'form-control alert-danger'" /> <small
-									class="form-text text-danger"
-									th:if="${#fields.hasErrors('lpn')}" th:errors="*{lpn}"></small>
-							</div>
-						</div>
-
-
-						<div class="form-group row">
-							<label for="brand" class="col-sm-2 col-form-label">Marca</label>
-							<div class="col-sm-6">
-								<input type="text" th:field="*{brand}" class="form-control"
-									th:errorclass="'form-control alert-danger'" /> <small
-									class="form-text text-danger"
-									th:if="${#fields.hasErrors('brand')}" th:errors="*{brand}"></small>
-							</div>
-						</div>
-						
-						
-						<div class="form-group row">
-							<label for="quantity" class="col-sm-2 col-form-label">Cantidad</label>
-							<div class="col-sm-6">
-								<input type="text" th:field="*{quantity}" class="form-control"
-									th:errorclass="'form-control alert-danger'" /> <small
-									class="form-text text-danger"
-									th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"></small>
-							</div>
-						</div>
-						
-						<div class="form-group row">
-							<label for="color" class="col-sm-2 col-form-label">Location</label>
-							<div class="col-sm-6">
-								<select class="custom-select custom-select-sm"
-									th:field="*{location}">
-									<option value="">--</option>
-									<option th:each="location : ${locations}"
-										th:value="${location.id}" th:utext="${location.name}" />
-								</select>
-							</div>
-						</div>
-
-						<div class="form-group row">
-							<label for="color" class="col-sm-2 col-form-label">Categoria</label>
-							<div class="col-sm-6">
-								<select class="custom-select custom-select-sm"
-									th:field="*{category}">
-									<option value="">--</option>
-									<option th:each="category : ${categories}"
-										th:value="${category.id}" th:utext="${category.name}" />
-								</select>
-							</div>
-						</div>
-						
-						<div class="form-group row">
-							<label for="color" class="col-sm-2 col-form-label">Familia</label>
-							<div class="col-sm-6">
-								<select class="custom-select custom-select-sm"
-									th:field="*{family}">
-									<option value="">--</option>
-									<option th:each="family : ${families}"
-										th:value="${family.id}" th:utext="${family.name}" />
-								</select>
-							</div>
-						</div>
-						
-						<div class="form-group row">
-							<label for="color" class="col-sm-2 col-form-label">Lote</label>
-							<div class="col-sm-6">
-								<select class="custom-select custom-select-sm"
-									th:field="*{lot}">
-									<option value="">--</option>
-									<option th:each="lot : ${lots}"
-										th:value="${lot.id}" th:utext="${lot.description}" />
-								</select>
-							</div>
-						</div>
-
-
-						<div class="form-group row">
-							<div class="col-sm-6">
-								<input type="submit" th:value="${title}" class="btn btn-primary" />
-							</div>
-						</div>
-					</form>
-
-
+								<td><a href="#"
+									th:href="@{'/locations/edit/' + ${loc.id}}" th:text="'edit'"
+									class="btn btn-primary">Editar</a></td>
+							</tr>
+						</tbody>
+					</table>
 
 
 				</div>
@@ -356,11 +258,11 @@
 					</button>
 				</div>
 				<div class="modal-body">Seleccione "Cerrar sesión" a
-					continuación si está listo para finalizar su sesión actual</div>
+					continuación si está listo para finalizar su sesión actual.</div>
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
 						data-dismiss="modal">Cancelar</button>
-					<a class="btn btn-primary" th:href="@{/}">Cerrar Sesión</a>
+					<a class="btn btn-primary" th:href="@{/}">Cerrar sesión</a>
 				</div>
 			</div>
 		</div>

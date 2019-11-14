@@ -57,12 +57,38 @@
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-toggle="collapse" data-target="#collapseTwo"
 				aria-expanded="true" aria-controls="collapseTwo"> <i
-					class="fas fa-fw fa-cog"></i> <span>Mantenimientos</span>
+					class="fas fa-fw fa-cog"></i> <span>Mantenice</span>
 			</a>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/categories}">Categorias</a>
+						<a class="collapse-item" th:href="@{/categories}">Categories</a>
+					</div>
+				</div>
+				
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/lots}">Lots</a>
+					</div>
+				</div>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/families}">Family</a>
+					</div>
+				</div>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/lots}">Lot</a>
+					</div>
+				</div>
+				
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/locations}">Ubication</a>
 					</div>
 				</div>
 				</li>
@@ -70,12 +96,12 @@
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-toggle="collapse" data-target="#collapseTwo"
 				aria-expanded="true" aria-controls="collapseTwo"> <i
-					class="fas fa-fw fa-cog"></i> <span>Registros</span>
+					class="fas fa-fw fa-cog"></i> <span>Register</span>
 			</a>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/products}">Orden de Compra</a>
+						<a class="collapse-item" th:href="@{/products}">Products</a>
 					</div>
 				</div></li>
 
@@ -111,7 +137,7 @@
 						class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
 						<div class="input-group">
 							<input type="text" class="form-control bg-light border-0 small"
-								placeholder="Buscar por..." aria-label="Search"
+								placeholder="Search for..." aria-label="Search"
 								aria-describedby="basic-addon2">
 							<div class="input-group-append">
 								<button class="btn btn-primary" type="button">
@@ -144,13 +170,13 @@
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
 								aria-labelledby="userDropdown">
 								<a class="dropdown-item" href="#"> <i
-									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
+									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
 								</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="#" data-toggle="modal"
 									data-target="#logoutModal"> <i
 									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									Cerrar sesión
+									Sign out
 								</a>
 							</div></li>
 
@@ -163,7 +189,7 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 class="h3 mb-4 text-gray-800">Categoria</h1>
+					<h1 class="h3 mb-4 text-gray-800">Category</h1>
 
 					<hr class="sidebar-divider">
 					<div th:object="${category}" th:remove="tag">
@@ -176,7 +202,7 @@
 					<form th:action="@{/categories/save}" th:object="${category}"
 						method="post">
 						<div class="form-group row">
-							<label for="name" class="col-sm-2 col-form-label">Nombre</label>
+							<label for="name" class="col-sm-2 col-form-label">Name</label>
 							<div class="col-sm-6">
 								<input type="text" th:field="*{name}" class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
@@ -186,7 +212,7 @@
 						</div>
 						
 						<div class="form-group row">
-							<label for="description" class="col-sm-2 col-form-label">Descripcion</label>
+							<label for="description" class="col-sm-2 col-form-label">Description</label>
 							<div class="col-sm-6">
 								<input type="text" th:field="*{description}"
 									class="form-control"
@@ -242,19 +268,19 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">¿Listo para
-						salir?</h5>
+					<h5 class="modal-title" id="exampleModalLabel">Are you sure to
+						close session?</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">×</span>
 					</button>
 				</div>
-				<div class="modal-body">Seleccione "Cerrar sesión" a
-					continuación si está listo para finalizar su sesión actual</div>
+				<div class="modal-body">Select "Sign out" below if you are
+					ready to end your current session.</div>
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
-						data-dismiss="modal">Cancelar</button>
-					<a class="btn btn-primary" th:href="@{/}">Cerrar Sesión</a>
+						data-dismiss="modal">Cancel</button>
+					<a class="btn btn-primary" th:href="@{/}">Sign out</a>
 				</div>
 			</div>
 		</div>

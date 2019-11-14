@@ -42,8 +42,8 @@ public class LotController {
 	public String neLot(Model model) {
 		Lot lot= new Lot();
 		model.addAttribute("lot", lot);
-		model.addAttribute("title", "New Category");
-		return "category/form";
+		model.addAttribute("title", "New lot");
+		return "lot/form";
 	}
 	
 		
@@ -65,7 +65,7 @@ public class LotController {
 		lotService.save(lot);
 		status.setComplete();
 		flash.addFlashAttribute("success", mensajeFlash);
-		return "lot/form";
+		return "redirect:/lots";
 	}
 	
 	@RequestMapping("/delete")

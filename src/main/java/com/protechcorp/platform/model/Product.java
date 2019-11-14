@@ -2,6 +2,7 @@ package com.protechcorp.platform.model;
 
 
 import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -37,13 +38,13 @@ public class Product {
 	@Column(name = "description", nullable = false)
 	private String description;
 	
-	@NotEmpty(message = "You need to specify a location.")
-	@Column(name = "location", nullable = false)
-	private String location;
-	
 	@NotEmpty(message = "You need to specify a quantity.")
 	@Column(name = "quantity", nullable = false)
 	private String quantity;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name = "location_id", nullable = false)
+	private Location location;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "category_id", nullable = false)
@@ -97,9 +98,6 @@ public class Product {
 		this.description = description;
 	}
 
-	public String getLocation() {
-		return location;
-	}
 
 	public String getQuantity() {
 		return quantity;
@@ -109,9 +107,6 @@ public class Product {
 		this.quantity = quantity;
 	}
 
-	public void setLocation(String location) {
-		this.location = location;
-	}
 
 	public Category getCategory() {
 		return category;
@@ -136,6 +131,15 @@ public class Product {
 	public void setLot(Lot lot) {
 		this.lot = lot;
 	}
+
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+
+	public Location getLocation() {
+		return location;
+	}
+	
 	
 	
 	

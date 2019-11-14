@@ -6,17 +6,17 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.protechcorp.platform.model.WareHouse;
-import com.protechcorp.platform.repository.IWareHouseRepository;
-import com.protechcorp.platform.service.IWareHouseService;
+import com.protechcorp.platform.model.Location;
+import com.protechcorp.platform.repository.ILocationRepository;
+import com.protechcorp.platform.service.ILocationService;
 
 @Service
-public class WareHouseService implements IWareHouseService {
+public class LocationService implements ILocationService {
 @Autowired
-private IWareHouseRepository warehouseRepository;
+private ILocationRepository warehouseRepository;
 
 @Override
-public WareHouse save(WareHouse t) throws Exception {
+public Location save(Location t) throws Exception {
 	// TODO Auto-generated method stub
 	return warehouseRepository.save(t);
 }
@@ -29,13 +29,13 @@ public void deleteById(Long id) throws Exception {
 }
 
 @Override
-public Optional<WareHouse> findById(Long id) throws Exception {
+public Optional<Location> findById(Long id) throws Exception {
 	// TODO Auto-generated method stub
 	return warehouseRepository.findById(id);
 }
 
 @Override
-public List<WareHouse> findAll() throws Exception {
+public List<Location> findAll() throws Exception {
 	// TODO Auto-generated method stub
 	return warehouseRepository.findAll();
 }
