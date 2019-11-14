@@ -102,7 +102,7 @@ public class ProductController {
 		productService.save(product);
 		status.setComplete();
 		flash.addFlashAttribute("success",mensajeFlash);
-		return "redirect:/Products";
+		return "redirect:/products";
 	}
 	
 	@GetMapping(value="/edit/{id}")
