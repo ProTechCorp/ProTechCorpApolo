@@ -1,21 +1,0 @@
-spring:
-  datasource:    url: jdbc:postgresql://localhost:5432/ProTechCorp
-    username: postgres
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-    password: admin
-=======
-    password: Comando97
->>>>>>> Eduardo
-=======
-    password: angelo11
->>>>>>> bcbf3e126785d187eefd8279dc46d49f143b28b6
-
-
-    driver-class-name: org.postgresql.Driver
-  jpa:
-    database: postgresql
-    hibernate:      ddl-auto: update
-    generate-ddl: true
-    show-sql: true 
