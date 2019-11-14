@@ -54,42 +54,36 @@
 			</a></li>
 
 
-			<!-- Nav Item - Pages Collapse Menu -->
+		<!-- Nav Item - Pages Collapse Menu -->
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-toggle="collapse" data-target="#collapseTwo"
 				aria-expanded="true" aria-controls="collapseTwo"> <i
-					class="fas fa-fw fa-cog"></i> <span>Mantenimientos</span>
+					class="fas fa-fw fa-cog"></i> <span>Maintenace</span>
 			</a>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/categories}">Categorias</a>
+						<a class="collapse-item" th:href="@{/categories}">Category</a>
 					</div>
 				</div>
 				
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/lots}">Lotes</a>
+						<a class="collapse-item" th:href="@{/lots}">Lot</a>
 					</div>
 				</div>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/families}">Familia</a>
-					</div>
-				</div>
-				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-					data-parent="#accordionSidebar">
-					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/lots}">Lote</a>
+						<a class="collapse-item" th:href="@{/families}">Family</a>
 					</div>
 				</div>
 				
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/locations}">Ubicacion</a>
+						<a class="collapse-item" th:href="@{/locations}">Location</a>
 					</div>
 				</div>
 				</li>
@@ -97,14 +91,22 @@
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-toggle="collapse" data-target="#collapseTwo"
 				aria-expanded="true" aria-controls="collapseTwo"> <i
-					class="fas fa-fw fa-cog"></i> <span>Registros</span>
+					class="fas fa-fw fa-cog"></i> <span>Register</span>
 			</a>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
+					
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/products}">Productos</a>
+						<a class="collapse-item" th:href="@{/products}">Product</a>
 					</div>
-				</div></li>
+					
+						<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/reports/locations}">Location</a>
+					</div>
+				</div>
+				</li>
 
 
 
@@ -206,8 +208,8 @@
 								<th scope="col">Lpn</th>
 								<th scope="col">Brand</th>
 								<th scope="col">Quantity</th>
-								<th scope="col">Location</th>
 								<th scope="col">Category</th>
+								<th scope="col">Location</th>
 								<th scope="col">Family</th>
 								<th scope="col">Lot</th>
 							</tr>
