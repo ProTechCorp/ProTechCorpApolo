@@ -36,6 +36,28 @@ public class CategoryController {
 		return "category/category";
 	}
 	
+	@GetMapping("/search")
+	public String searchCategory(@RequestParam("name") String name,Model model) {
+		try {
+			if(!name.isEmpty()) {
+				List<Category> categories=categoryService.fetchCategoryByName(name);
+				if(!categories.isEmpty()) {
+					model.addAttribute("categories",categories);
+				}else {
+					model.addAttribute("info","No existe categoria");
+					model.addAttribute("families",categoryService.findAll());
+				}
+				
+			}else {
+				model.addAttribute("info","Debe ingresar un categoria");
+				model.addAttribute("categories",categoryService.findAll());
+			}
+		} catch (Exception e) {
+			model.addAttribute("error",e.getMessage());
+		}
+		return "category/category";
+	}
+	
 	@GetMapping(value="/new")
 	public String newCategory(Model model) {
 		

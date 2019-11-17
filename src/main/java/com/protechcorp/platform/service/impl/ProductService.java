@@ -50,4 +50,15 @@ public class ProductService implements IProductService {
 		return productRepository.findByLocation(nameLocation);
 	}
 
+	@Override
+	public List<Product> fetchProductByName(String name) throws Exception {
+		// TODO Auto-generated method stub
+		return productRepository.fetchProductByName(name);
+	}
+
+	@Override
+	public List<Product> fetchProductByBrand(String brand) throws Exception {
+		// TODO Auto-generated method stub
+		return productRepository.fetchProductByBrand(brand);
+	}
 }

@@ -40,6 +40,12 @@ public class FamilyService implements IFamilyService {
 		// TODO Auto-generated method stub
 		return familyRepository.findAll();
 	}
+
+	@Override
+	public List<Family> fetchFamilyByName(String name) throws Exception {
+		// TODO Auto-generated method stub
+		return familyRepository.fetchFamilyByName(name);
+	}
 	
 
 }

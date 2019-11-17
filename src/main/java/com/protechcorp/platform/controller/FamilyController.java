@@ -19,7 +19,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.protechcorp.platform.model.Family;
 import com.protechcorp.platform.service.IFamilyService;
 
-
 @Controller
 @SessionAttributes("family")
 @RequestMapping("/families")
@@ -27,13 +26,35 @@ public class FamilyController {
 
 	@Autowired
 	private IFamilyService familyService;
-	
+		
 	@GetMapping
-	public String listLots(Model model) throws Exception{
+	public String listfamily(Model model) throws Exception{
 		
 		List<Family> families = familyService.findAll();
 		model.addAttribute("families", families);
 		
+		return "family/family";
+	}
+	
+	@GetMapping("/search")
+	public String searchFamily(@RequestParam("name") String name,Model model) {
+		try {
+			if(!name.isEmpty()) {
+				List<Family> families=familyService.fetchFamilyByName(name);
+				if(!families.isEmpty()) {
+					model.addAttribute("families",families);
+				}else {
+					model.addAttribute("info","No existe familia");
+					model.addAttribute("families",familyService.findAll());
+				}
+				
+			}else {
+				model.addAttribute("info","Debe ingresar una familia");
+				model.addAttribute("families",familyService.findAll());
+			}
+		} catch (Exception e) {
+			model.addAttribute("error",e.getMessage());
+		}
 		return "family/family";
 	}
 	
@@ -44,9 +65,6 @@ public class FamilyController {
 		model.addAttribute("title", "New Family");
 		return "family/form";
 	}
-	
-		
-	
 	
 	@PostMapping(value="/save")
 	public String saveFamily(@Valid Family family,
