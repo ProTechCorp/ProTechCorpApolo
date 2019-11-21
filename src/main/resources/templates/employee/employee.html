@@ -49,7 +49,7 @@
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Dashboard -->
-			<li class="nav-item"><a class="nav-link" th:href="@{/panel}">
+			<li class="nav-item"><a class="nav-link" href="index.html">
 					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Panel</span>
 			</a></li>
 
@@ -97,7 +97,7 @@
 					data-parent="#accordionSidebar">
 					
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/products}">Product</a>
+						<a class="collapse-item" th:href="@{/emplucts}">empluct</a>
 					</div>
 					
 						<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
@@ -138,13 +138,13 @@
 					</button>
 
 				<!-- Topbar Search -->
-					<form th:action="@{/products/searchName}" method="get">
+					<form th:action="@{/employees/searchName}" method="get">
 					<div class="form-row align-items-center">
 						<div class="col-auto">
-							<Label class="sr-only" for="inputName">name</Label>
+							<Label class="sr-only" for="inputName">first name</Label>
 							 <input
 								id="inputName" type="text" class="form-control bg-light border-0 small"
-								name="name" placeholder="Buscar por name..." aria-label="Search"
+								name="firstname" placeholder="Buscar por firstname..." aria-label="Search"
 								aria-describedby="basic-addon2">
 						</div>
 						<div class="col-auto">
@@ -155,22 +155,7 @@
 					</div>
 					</form>
 					
-					<form th:action="@{/products/searchBrand}" method="get">
-					<div class="form-row align-items-center">
-						<div class="col-auto">
-							<Label class="sr-only" for="inputBrand">brand</Label>
-							 <input
-								id="inputBrand" type="text" class="form-control bg-light border-0 small"
-								name="brand" placeholder="Buscar por brand..." aria-label="Search"
-								aria-describedby="basic-addon2">
-						</div>
-						<div class="col-auto">
-							<button class="btn btn-primary" type="submit">
-									<i class="fas fa-search fa-sm"></i>
-								</button>
-						</div>
-					</div>
-					</form>		
+					
 
 					<!-- Topbar Navbar -->
 					<ul class="navbar-nav ml-auto">
@@ -213,9 +198,9 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 class="h3 mb-4 text-gray-800">Orden De Compra</h1>
+					<h1 class="h3 mb-4 text-gray-800">Encargados</h1>
 
-					<a th:href="@{/products/new/}" class="btn btn-primary btn-xs">Nuevo</a>
+					<a th:href="@{/employees/new/}" class="btn btn-primary btn-xs">Nuevo</a>
 
 					<hr class="sidebar-divider">
 
@@ -223,30 +208,23 @@
 						<thead class="thead-dark">
 							<tr>
 								<th scope="col">#</th>
-								<th scope="col">Name</th>
-								<th scope="col">Description</th>
-								<th scope="col">Lpn</th>
-								<th scope="col">Brand</th>
-								<th scope="col">Quantity</th>
-								<th scope="col">Category</th>
+								<th scope="col">FirstName</th>
+								<th scope="col">LastName</th>
+								<th scope="col">DNI</th>
+								<th scope="col">Telephone</th>
 								<th scope="col">Location</th>
-								<th scope="col">Family</th>
-								<th scope="col">Lot</th>
+							
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="prod: ${products}">
-								<td th:text="${prod.id}">Oranges</td>
-								<td th:text="${prod.name}">Oranges</td>
-								<td th:text="${prod.description}">0.99</td>
-								<td th:text="${prod.lpn}">0.99</td>
-								<td th:text="${prod.brand}">0.99</td>
-								<td th:text="${prod.quantity}">0.99</td>
-								<td th:text="${prod.category.name}">0.99</td>
-								<td th:text="${prod.location.name}">0.99</td>
-								<td th:text="${prod.family.name}">0.99</td>
-								<td th:text="${prod.lot.description}">0.99</td>
-								<td><a href="#" th:href="@{'/products/edit/' + ${prod.id}}"
+							<tr th:each="empl: ${employees}">
+								<td th:text="${empl.id}">Oranges</td>
+								<td th:text="${empl.firstname}">Oranges</td>
+								<td th:text="${empl.lastname}">Oranges</td>
+								<td th:text="${empl.dni}">0.99</td>
+								<td th:text="${empl.telephone}">Oranges</td>
+								<td th:text="${empl.location.name}">0.99</td>
+								<td><a href="#" th:href="@{'/employees/edit/' + ${empl.id}}"
 									th:text="'edit'" class="btn btn-primary">Editar</a></td>
 								
 							</tr>
@@ -264,7 +242,7 @@
 			<footer class="sticky-footer bg-white">
 				<div class="container my-auto">
 					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; Rosatel 2019</span>
+						<span>Copyright &copy; ProTech Corp 2019</span>
 					</div>
 				</div>
 			</footer>

@@ -51,7 +51,7 @@ public class EmployeeController {
 		model.addAttribute("employee", employee);
 		model.addAttribute("locations",loadLocations());
 		
-		model.addAttribute("titel","New Employee");
+		model.addAttribute("title","New Employee");
 		return "/employee/form";
 	}
 	
@@ -70,7 +70,7 @@ public class EmployeeController {
 		employeeService.save(employee);
 		status.setComplete();
 		flash.addFlashAttribute("success",mensajeFlash);
-		return "redirect:/Employees"; //puede que salga error employees
+		return "redirect:/employees"; //puede que salga error employees
 	}
 	
 	@GetMapping(value="/edit/{id}")
@@ -95,3 +95,4 @@ public class EmployeeController {
 		return "employee/form";
 	}
 }
+

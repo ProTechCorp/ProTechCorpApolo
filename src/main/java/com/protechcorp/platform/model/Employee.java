@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="employees")
@@ -19,7 +20,7 @@ public class Employee {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotEmpty(message = "DNI cannot be empty")
+	@NotNull(message = "DNI cannot be empty")
 	@Column(name = "dni", nullable = false, length = 50)
 	private Long dni;
 	
