@@ -48,7 +48,7 @@
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Dashboard -->
-			<li class="nav-item"><a class="nav-link" th:href="@{/panel}">
+			<li class="nav-item"><a class="nav-link" href="index.html">
 					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Panel</span>
 			</a></li>
 
@@ -57,41 +57,40 @@
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-toggle="collapse" data-target="#collapseTwo"
 				aria-expanded="true" aria-controls="collapseTwo"> <i
-					class="fas fa-fw fa-cog"></i> <span>Mantenimientos</span>
+					class="fas fa-fw fa-cog"></i> <span>Manteinance</span>
 			</a>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/categories}">Categorias</a>
+						<a class="collapse-item" th:href="@{/categories}">Categories</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/lots}">Lotes</a>
-					</div>
-				</div>
-				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-					data-parent="#accordionSidebar">
-					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/families}">Familia</a>
+						<a class="collapse-item" th:href="@{/lots}">Lots</a>
 					</div>
 				</div>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/lots}">Lote</a>
+						<a class="collapse-item" th:href="@{/families}">Families</a>
 					</div>
 				</div>
-				
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/locations}">Ubicacion</a>
+						<a class="collapse-item" th:href="@{/lots}">Lots</a>
 					</div>
 				</div>
-				</li>
+
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/locations}">Locations</a>
+					</div>
+				</div></li>
 
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-toggle="collapse" data-target="#collapseTwo"
@@ -101,9 +100,16 @@
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/products}">Productos</a>
+						<a class="collapse-item" th:href="@{/products}">Products</a>
 					</div>
 				</div></li>
+			<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+				data-parent="#accordionSidebar">
+				<div class="bg-white py-2 collapse-inner rounded">
+					<a class="collapse-item" th:href="@{/employees}">Employees</a>
+				</div>
+			</div>
+			</li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
@@ -164,7 +170,8 @@
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <span
-								class="mr-2 d-none d-lg-inline text-gray-600 small">Eduardo Estela Pardo</span> 
+								class="mr-2 d-none d-lg-inline text-gray-600 small">Eduardo
+									Estela Pardo</span>
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -189,37 +196,71 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 class="h3 mb-4 text-gray-800">Categoria</h1>
+					<h1 class="h3 mb-4 text-gray-800">Encargado de Pasillo</h1>
 
 					<hr class="sidebar-divider">
-					<div th:object="${category}" th:remove="tag">
+					<div th:object="${employee}" th:remove="tag">
 						<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger"
 							role="alert">
 							<li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
 						</ul>
 					</div>
 
-					<form th:action="@{/categories/save}" th:object="${category}"
+					<form th:action="@{/employees/save}" th:object="${employee}"
 						method="post">
 						<div class="form-group row">
-							<label for="name" class="col-sm-2 col-form-label">Nombre</label>
+							<label for="firstname" class="col-sm-2 col-form-label">Employee
+								Name</label>
 							<div class="col-sm-6">
-								<input type="text" th:field="*{name}" class="form-control"
+								<input type="text" th:field="*{firstname}" class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
-									th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></small>
+									th:if="${#fields.hasErrors('firstname')}"
+									th:errors="*{firstname}"></small>
 							</div>
 						</div>
-						
+
 						<div class="form-group row">
-							<label for="description" class="col-sm-2 col-form-label">Descripcion</label>
+							<label for="lastname" class="col-sm-2 col-form-label">Employee
+								Last Name</label>
 							<div class="col-sm-6">
-								<input type="text" th:field="*{description}"
-									class="form-control"
+								<input type="text" th:field="*{lastname}" class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
-									th:if="${#fields.hasErrors('description')}"
-									th:errors="*{description}"></small>
+									th:if="${#fields.hasErrors('lastname')}"
+									th:errors="*{lastname}"></small>
+							</div>
+						</div>
+
+						<div class="form-group row">
+							<label for="dni" class="col-sm-2 col-form-label">DNI</label>
+							<div class="col-sm-6">
+								<input type="text" th:field="*{dni}" class="form-control"
+									th:errorclass="'form-control alert-danger'" /> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></small>
+							</div>
+						</div>
+
+						<div class="form-group row">
+							<label for="dni" class="col-sm-2 col-form-label">Telepphone</label>
+							<div class="col-sm-6">
+								<input type="text" th:field="*{telephone}" class="form-control"
+									th:errorclass="'form-control alert-danger'" /> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('telephone')}" th:errors="*{telephone}"></small>
+							</div>
+						</div>
+
+						<div class="form-group row">
+							<label for="color" class="col-sm-2 col-form-label">Location</label>
+							<div class="col-sm-6">
+								<select class="custom-select custom-select-sm"
+									th:field="*{location}">
+									<option value="">--</option>
+									<option th:each="location : ${locations}"
+										th:value="${location.id}" th:utext="${location.name}" />
+								</select>
 							</div>
 						</div>
 
@@ -245,7 +286,7 @@
 			<footer class="sticky-footer bg-white">
 				<div class="container my-auto">
 					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; ProcTechCorp 2019</span>
+						<span>Copyright &copy; ProTechCorp 2019</span>
 					</div>
 				</div>
 			</footer>
@@ -299,4 +340,3 @@
 </body>
 
 </html>
-

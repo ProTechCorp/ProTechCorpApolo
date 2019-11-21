@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
@@ -48,47 +49,41 @@
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Dashboard -->
-			<li class="nav-item"><a class="nav-link" th:href="@{/panel}">
+			<li class="nav-item"><a class="nav-link" href="index.html">
 					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Panel</span>
 			</a></li>
 
 
-			<!-- Nav Item - Pages Collapse Menu -->
+		<!-- Nav Item - Pages Collapse Menu -->
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-toggle="collapse" data-target="#collapseTwo"
 				aria-expanded="true" aria-controls="collapseTwo"> <i
-					class="fas fa-fw fa-cog"></i> <span>Mantenimientos</span>
+					class="fas fa-fw fa-cog"></i> <span>Maintenace</span>
 			</a>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/categories}">Categorias</a>
+						<a class="collapse-item" th:href="@{/categories}">Category</a>
 					</div>
 				</div>
 				
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/lots}">Lotes</a>
+						<a class="collapse-item" th:href="@{/lots}">Lot</a>
 					</div>
 				</div>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/families}">Familia</a>
-					</div>
-				</div>
-				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-					data-parent="#accordionSidebar">
-					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/lots}">Lote</a>
+						<a class="collapse-item" th:href="@{/families}">Family</a>
 					</div>
 				</div>
 				
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/locations}">Ubicacion</a>
+						<a class="collapse-item" th:href="@{/locations}">Location</a>
 					</div>
 				</div>
 				</li>
@@ -96,14 +91,24 @@
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-toggle="collapse" data-target="#collapseTwo"
 				aria-expanded="true" aria-controls="collapseTwo"> <i
-					class="fas fa-fw fa-cog"></i> <span>Registros</span>
+					class="fas fa-fw fa-cog"></i> <span>Register</span>
 			</a>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
+					
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/products}">Productos</a>
+						<a class="collapse-item" th:href="@{/emplucts}">empluct</a>
 					</div>
-				</div></li>
+					
+						<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/reports/locations}">Location</a>
+					</div>
+				</div>
+				</li>
+
+
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
@@ -132,20 +137,25 @@
 						<i class="fa fa-bars"></i>
 					</button>
 
-					<!-- Topbar Search -->
-					<form
-						class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-						<div class="input-group">
-							<input type="text" class="form-control bg-light border-0 small"
-								placeholder="Buscar por..." aria-label="Search"
+				<!-- Topbar Search -->
+					<form th:action="@{/employees/searchName}" method="get">
+					<div class="form-row align-items-center">
+						<div class="col-auto">
+							<Label class="sr-only" for="inputName">first name</Label>
+							 <input
+								id="inputName" type="text" class="form-control bg-light border-0 small"
+								name="firstname" placeholder="Buscar por firstname..." aria-label="Search"
 								aria-describedby="basic-addon2">
-							<div class="input-group-append">
-								<button class="btn btn-primary" type="button">
+						</div>
+						<div class="col-auto">
+							<button class="btn btn-primary" type="submit">
 									<i class="fas fa-search fa-sm"></i>
 								</button>
-							</div>
 						</div>
+					</div>
 					</form>
+					
+					
 
 					<!-- Topbar Navbar -->
 					<ul class="navbar-nav ml-auto">
@@ -164,8 +174,7 @@
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <span
-								class="mr-2 d-none d-lg-inline text-gray-600 small">Eduardo Estela Pardo</span> 
-						</a> <!-- Dropdown - User Information -->
+								class="mr-2 d-none d-lg-inline text-gray-600 small">Eduardo Estela</span> 
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
 								aria-labelledby="userDropdown">
@@ -189,50 +198,38 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 class="h3 mb-4 text-gray-800">Categoria</h1>
+					<h1 class="h3 mb-4 text-gray-800">Encargados</h1>
+
+					<a th:href="@{/employees/new/}" class="btn btn-primary btn-xs">Nuevo</a>
 
 					<hr class="sidebar-divider">
-					<div th:object="${category}" th:remove="tag">
-						<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger"
-							role="alert">
-							<li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
-						</ul>
-					</div>
 
-					<form th:action="@{/categories/save}" th:object="${category}"
-						method="post">
-						<div class="form-group row">
-							<label for="name" class="col-sm-2 col-form-label">Nombre</label>
-							<div class="col-sm-6">
-								<input type="text" th:field="*{name}" class="form-control"
-									th:errorclass="'form-control alert-danger'" /> <small
-									class="form-text text-danger"
-									th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></small>
-							</div>
-						</div>
-						
-						<div class="form-group row">
-							<label for="description" class="col-sm-2 col-form-label">Descripcion</label>
-							<div class="col-sm-6">
-								<input type="text" th:field="*{description}"
-									class="form-control"
-									th:errorclass="'form-control alert-danger'" /> <small
-									class="form-text text-danger"
-									th:if="${#fields.hasErrors('description')}"
-									th:errors="*{description}"></small>
-							</div>
-						</div>
-
-
-
-						<div class="form-group row">
-							<div class="col-sm-6">
-								<input type="submit" th:value="${title}" class="btn btn-primary" />
-							</div>
-						</div>
-					</form>
-
-
+					<table class="table table-striped">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">FirstName</th>
+								<th scope="col">LastName</th>
+								<th scope="col">DNI</th>
+								<th scope="col">Telephone</th>
+								<th scope="col">Location</th>
+							
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="empl: ${employees}">
+								<td th:text="${empl.id}">Oranges</td>
+								<td th:text="${empl.firstname}">Oranges</td>
+								<td th:text="${empl.lastname}">Oranges</td>
+								<td th:text="${empl.dni}">0.99</td>
+								<td th:text="${empl.telephone}">Oranges</td>
+								<td th:text="${empl.location.name}">0.99</td>
+								<td><a href="#" th:href="@{'/employees/edit/' + ${empl.id}}"
+									th:text="'edit'" class="btn btn-primary">Editar</a></td>
+								
+							</tr>
+						</tbody>
+					</table>
 
 
 				</div>
@@ -245,7 +242,7 @@
 			<footer class="sticky-footer bg-white">
 				<div class="container my-auto">
 					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; ProcTechCorp 2019</span>
+						<span>Copyright &copy; ProTech Corp 2019</span>
 					</div>
 				</div>
 			</footer>
@@ -276,11 +273,11 @@
 					</button>
 				</div>
 				<div class="modal-body">Seleccione "Cerrar sesión" a
-					continuación si está listo para finalizar su sesión actual</div>
+					continuación si está listo para finalizar su sesión actual.</div>
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
 						data-dismiss="modal">Cancelar</button>
-					<a class="btn btn-primary" th:href="@{/}">Cerrar Sesión</a>
+					<a class="btn btn-primary" th:href="@{/}">Cerrar sesión</a>
 				</div>
 			</div>
 		</div>
@@ -299,4 +296,3 @@
 </body>
 
 </html>
-
