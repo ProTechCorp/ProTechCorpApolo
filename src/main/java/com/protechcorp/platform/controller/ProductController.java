@@ -187,8 +187,11 @@ public class ProductController {
 			flash.addFlashAttribute("error","El producto no existe");
 			return "redirect:/products";
 		}
-		model.addAttribute("categories", loadCategories());
 		model.addAttribute("product", product);
+		model.addAttribute("categories", loadCategories());
+		model.addAttribute("families",loadFamilies());
+		model.addAttribute("lots",loadLots());
+		model.addAttribute("locations",loadLocations());
 		model.addAttribute("title","Edit Products");
 		return "product/form";
 	}
