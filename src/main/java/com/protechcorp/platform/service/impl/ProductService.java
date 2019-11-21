@@ -28,8 +28,7 @@ public class ProductService implements IProductService {
 	@Override
 	public void deleteById(Long id) throws Exception {
 		
-		productRepository.deleteById(id);
-		
+		productRepository.deleteById(id);		
 	}
 
 	@Override
@@ -60,5 +59,11 @@ public class ProductService implements IProductService {
 	public List<Product> fetchProductByBrand(String brand) throws Exception {
 		// TODO Auto-generated method stub
 		return productRepository.fetchProductByBrand(brand);
+	}
+
+	@Override
+	public List<Product> fetchProductByDescription(String description) throws Exception {
+		// TODO Auto-generated method stub
+		return productRepository.fetchProductByDescription(description);
 	}
 }

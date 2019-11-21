@@ -101,6 +101,27 @@ public class ProductController {
 		return "product/product";	
 	}
 	
+	@GetMapping("/searchDescription")
+	public String searchProductDescription(@RequestParam("description") String description,Model model) {
+		try {
+			if(!description.isEmpty()) {
+				List<Product> products=productService.fetchProductByDescription(description);
+				if(!products.isEmpty()) {
+					model.addAttribute("products",products);
+				}else {
+					model.addAttribute("info","No existe description");
+					model.addAttribute("products",productService.findAll());
+				}
+			}else {
+				model.addAttribute("info","Debe ingresar una description");
+				model.addAttribute("products",productService.findAll());
+			}
+		} catch (Exception e) {
+			model.addAttribute("error",e.getMessage());
+		}
+		return "product/product";	
+	}
+	
 	List<Category> loadCategories() throws Exception{
 		return categoryService.findAll();
 	}

@@ -9,4 +9,5 @@ public interface IProductService extends CrudService<Product>{
 	List<Product> findByLocation(String nameLocation);
 	List<Product> fetchProductByName(String name) throws Exception;
 	List<Product> fetchProductByBrand(String brand) throws Exception;
+	List<Product> fetchProductByDescription(String description) throws Exception;
 }

@@ -170,6 +170,23 @@
 								</button>
 						</div>
 					</div>
+					</form>	
+					
+					<form th:action="@{/products/searchDescription}" method="get">
+					<div class="form-row align-items-center">
+						<div class="col-auto">
+							<Label class="sr-only" for="inputDescription">description</Label>
+							 <input
+								id="inputDescription" type="text" class="form-control bg-light border-0 small"
+								name="description" placeholder="Buscar por decription..." aria-label="Search"
+								aria-describedby="basic-addon2">
+						</div>
+						<div class="col-auto">
+							<button class="btn btn-primary" type="submit">
+									<i class="fas fa-search fa-sm"></i>
+								</button>
+						</div>
+					</div>
 					</form>		
 
 					<!-- Topbar Navbar -->
