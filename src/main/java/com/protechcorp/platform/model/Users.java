@@ -1,40 +1,41 @@
 package com.protechcorp.platform.model;
 
+import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
 
 @Entity
-@Table(name="users")
-public class User {
+@Table(name = "users")
+public class Users implements Serializable {
+
+	
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@NotEmpty(message = "Firstname cannot be empty")
-	@Column(name = "firstname", nullable = false, length = 50)
-	private String firstname;
-	
-	@NotEmpty(message = "Lastname cannot be empty")
-	@Column(name = "lastname", nullable = false, length = 50)
-	private String lastname;
-	
-	@NotEmpty(message = "email cannot be empty")
-	@Column(name = "email", nullable = false, length = 50)
-	private String email;
-	
-	@NotEmpty(message = "password cannot be empty")
-	@Column(name = "password", nullable = false, length = 50)
+
+	@Column(length = 30, unique = true)
+	private String username;
+
+	@Column(length = 60)
 	private String password;
-	
-	@NotEmpty(message = "Telephone cannot be empty")
-	@Column(name = "telephone", nullable = false, length = 50)
-	private String telephone;
+
+	private Boolean enabled;
+
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "user_id")
+	private List<Role> roles;
 
 	public Long getId() {
 		return id;
@@ -44,28 +45,12 @@ public class User {
 		this.id = id;
 	}
 
-	public String getFirstname() {
-		return firstname;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
-
-	public String getLastname() {
-		return lastname;
-	}
-
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -76,13 +61,20 @@ public class User {
 		this.password = password;
 	}
 
-	public String getTelephone() {
-		return telephone;
+	public Boolean getEnabled() {
+		return enabled;
 	}
 
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
 	}
-	
-	
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
+
 }
