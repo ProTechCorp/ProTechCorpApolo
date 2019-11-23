@@ -19,23 +19,31 @@
 					<div class="col-sm-6">
 						<img th:src="@{/img/rosatel.png}" height="35%" width="35%" />
 					</div>
-					<div class="col-sm-6"><p  class="btn btn-lg btn-danger btn-block">Welcome to ProTechCorp</p></div>
-
+					<div class="text-center">
+						<h1 class="h4 text-gray-900 mb-4">Welcome to ProTechCorp</h1>
+					</div>
 					<div class="col-sm-6">
 						<input type="text" name="username" id="username"
-							class="form-control" placeholder="usuario" autofocus required />
+							class="form-control" placeholder="username" autofocus required />
 					</div>
-
+					<br>
 					<div class="col-sm-6">
 						<input type="password" name="password" id="password"
-							class="form-control" placeholder="clave" required />
+							class="form-control" placeholder="password" required />
 					</div>
-
+					<br>
 					<div class="col-sm-6">
-						<input type="submit" class="btn btn-lg btn-danger btn-block"
-							value="Ingresar" />
+						<input type="submit" class="btn btn-primary btn-user btn-block"
+							value="Sign in" />
 					</div>
 				</form>
+				   <hr>
+                  <div class="text-center">
+                    <a class="small" href="#l">Forgot your password?</a>
+                  </div>
+                  <div class="text-center">
+                    <a class="small" th:href="@{/register}">Sign up</a>
+                  </div>
 
 			</div>
 		</div>

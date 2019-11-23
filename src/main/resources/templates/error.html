@@ -10,7 +10,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>SuperDrive</title>
+<title>PROTECHCORP</title>
 
 <!-- Custom fonts for this template-->
 <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
@@ -39,59 +39,88 @@
 				class="sidebar-brand d-flex align-items-center justify-content-center"
 				th:href="@{/panel}">
 				<div class="sidebar-brand-icon rotate-n-15">
-					<i class="fas fa-car"></i>
+					<i class="fas fa-cube"></i>
 				</div>
-				<div class="sidebar-brand-text mx-3">Super Drive</div>
+				<div class="sidebar-brand-text mx-3">Apolo</div>
 			</a>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Dashboard -->
-			<li class="nav-item active"><a class="nav-link"
-				th:href="@{/panel}"> <i class="fas fa-book"></i> <span>Mantenimientos</span></a>
-			</li>
+			<li class="nav-item"><a class="nav-link" th:href="@{/panel}">
+					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Panel</span>
+			</a></li>
+
+
+			<!-- Nav Item - Pages Collapse Menu -->
+			<li class="nav-item"><a class="nav-link collapsed" href="#"
+				data-toggle="collapse" data-target="#collapseTwo"
+				aria-expanded="true" aria-controls="collapseTwo"> <i
+					class="fas fa-fw fa-cog"></i> <span>Maintenace</span>
+			</a>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/categories}">Category</a>
+					</div>
+				</div>
+
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/lots}">Lot</a>
+					</div>
+				</div>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/families}">Family</a>
+					</div>
+				</div>
+
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/locations}">Location</a>
+					</div>
+				</div>
+
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/employees}">Employee</a>
+					</div>
+				</div></li>
+
+			<li class="nav-item"><a class="nav-link collapsed" href="#"
+				data-toggle="collapse" data-target="#collapseTwo"
+				aria-expanded="true" aria-controls="collapseTwo"> <i
+					class="fas fa-fw fa-cog"></i> <span>Register</span>
+			</a>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/products}">Product</a>
+					</div>
+
+					<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+						data-parent="#accordionSidebar">
+						<div class="bg-white py-2 collapse-inner rounded">
+							<a class="collapse-item" th:href="@{/reports/locations}">Location</a>
+						</div>
+					</div></li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
-			<!-- Heading -->
-			<div class="sidebar-heading"></div>
-			<!-- Mantenimiento de tablas -->
-			<li class="nav-item"><a class="nav-link collapsed"
-				th:href="@{/clientes}"> <i class="fas fa-fw fa-street-view"></i>
-					<span>Clientes</span>
-					<li class="nav-item"><a class="nav-link collapsed"
-						th:href="@{/trabajadores}"> <i class="fas fa-fw fa-user-cog"></i>
-							<span>Trabajadores</span>
-							<li class="nav-item"><a class="nav-link collapsed"
-								th:href="@{/marcas}"> <i class="fas fa-fw fa-weight-hanging"></i> <span>Marcas</span>
-									<li class="nav-item"><a class="nav-link collapsed"
-										th:href="@{/modelos}"> <i class="fas fa-fw fa-archive"></i> <span>Modelos</span>
-											<li class="nav-item"><a class="nav-link collapsed"
-												th:href="@{/ordenes}"> <i class="fas fa-fw fa-file-alt"></i>
-													<span>Ordenes</span>
-													<li class="nav-item"><a class="nav-link collapsed"
-														th:href="@{/diagnosticos}"> <i
-															class="fas fa-fw fa-stethoscope"></i> <span>Diagnosticos</span>
-															<li class="nav-item"><a class="nav-link collapsed"
-																th:href="@{/locales}"> <i class="fas fa-fw fa-city"></i>
-																	<span>local</span>
-																	<li class="nav-item"><a class="nav-link collapsed"
-																		th:href="@{/productos}"> <i
-																			class="fas fa-fw fa-product-hunt"></i> <span>Productos</span>
-																			<li class="nav-item"><a
-																				class="nav-link collapsed" th:href="@{/proveedores}">
-																					<i class="fas fa-fw fa-shipping-fast"></i> <span>Proveedores</span>
-																					<li class="nav-item"><a
-																						class="nav-link collapsed"
-																						th:href="@{/cotizaciones}"> <i
-																							class="fas fa-fw fa-calculator"></i> <span>Cotizacion</span>
-																					</a> <!-- Nav Item - Utilities Collapse Menu --> <!-- Divider -->
-																						<!-- Heading --> <!-- Nav Item - Pages Collapse Menu -->
-																						<!-- Nav Item - Charts --> <!-- Nav Item - Tables -->
-																						<!-- Divider -->
-																						<hr class="sidebar-divider d-none d-md-block">
-																						<!-- Sidebar Toggler (Sidebar) -->
+
+			x
+			<!-- Sidebar Toggler (Sidebar) -->
+			<div class="text-center d-none d-md-inline">
+				<button class="rounded-circle border-0" id="sidebarToggle"></button>
+			</div>
+
 		</ul>
 		<!-- End of Sidebar -->
 
@@ -116,7 +145,7 @@
 						class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
 						<div class="input-group">
 							<input type="text" class="form-control bg-light border-0 small"
-								placeholder="Search for..." aria-label="Search"
+								placeholder="Buscar por..." aria-label="Search"
 								aria-describedby="basic-addon2">
 							<div class="input-group-append">
 								<button class="btn btn-primary" type="button">
@@ -134,46 +163,30 @@
 							class="nav-link dropdown-toggle" href="#" id="searchDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <i class="fas fa-search fa-fw"></i>
-						</a> <!-- Dropdown - Messages -->
-							<div
-								class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-								aria-labelledby="searchDropdown">
-								<form class="form-inline mr-auto w-100 navbar-search">
-									<div class="input-group">
-										<input type="text"
-											class="form-control bg-light border-0 small"
-											placeholder="Search for..." aria-label="Search"
-											aria-describedby="basic-addon2">
-										<div class="input-group-append">
-											<button class="btn btn-primary" type="button">
-												<i class="fas fa-search fa-sm"></i>
-											</button>
-										</div>
-									</div>
-								</form>
-							</div></li>
+						</a></li>
 
-						<!-- Nav Item - Alerts -->
 
-						<div class="topbar-divider d-none d-sm-block"></div>
 
 						<!-- Nav Item - User Information -->
 						<li class="nav-item dropdown no-arrow"><a
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <span
-								class="mr-2 d-none d-lg-inline text-gray-600 small">Administrador
-							</span> <img class="img-profile rounded-circle"
-								src="https://scontent.flim1-1.fna.fbcdn.net/v/t1.0-1/p160x160/25507764_1554999577919733_7021385258693251198_n.jpg?_nc_cat=106&_nc_ht=scontent.flim1-1.fna&oh=b737418273fc95b51c179cd190b7cc2b&oe=5D851C18">
+								class="mr-2 d-none d-lg-inline text-gray-600 small"><img
+									th:src="@{/img/logout.png}" width="30" height="30" alt="logo"
+									align="middle"></img></span>
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
 								aria-labelledby="userDropdown">
+								<a class="dropdown-item" href="#"> <i
+									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
+								</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#" data-toggle="modal"
-									data-target="#logoutModal"> <i
+								<a class="dropdown-item" href="categories/index"
+									data-toggle="modal" data-target="#logoutModal"> <i
 									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									Cerrar Sesion
+									Cerrar sesión
 								</a>
 							</div></li>
 
@@ -186,71 +199,7 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<div
-						class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">Bienvenidos</h1>
-					</div>
-
-					<!-- Content Row -->
-					<div class="row">
-
-						<!-- Earnings (Monthly) Card Example -->
-
-
-						<!-- Earnings (Monthly) Card Example -->
-
-
-						<!-- Earnings (Monthly) Card Example -->
-
-
-						<!-- Pending Requests Card Example -->
-
-					</div>
-
-					<!-- Content Row -->
-
-					<div class="row">
-
-						<!-- Area Chart -->
-						<div class="col-xl-8 col-lg-7">
-							<div class="card shadow mb-4">
-								<!-- Card Header - Dropdown -->
-								<div
-									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-									<h3 class="m-0 font-weight-bold text-primary">Historia</h3>
-								</div>
-								<!-- Card Body -->
-								<div class="card-body">
-									<div class="chart-area">
-										<h6>Somos Super Drive Automotriz, un taller mecánico
-											automotriz que cuenta con 12 años de experiencia en el rubro.
-											Tenemos personal capacitado en reparación y mantenimiento de
-											cajas mecatrónicas DSG.</h6>
-										<img class="img-fluid px-3 px-sm-4 mt-3 mb-4"
-											style="width: 25rem;" src="img/undraw_posting_photo.svg"
-											alt="">
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Pie Chart -->
-
-					</div>
-
-					<!-- Content Row -->
-					<div class="row">
-
-						<!-- Content Column -->
-
-						<div class="col-lg-6 mb-4">
-
-							<!-- Illustrations -->
-
-							<!-- Approach -->
-
-						</div>
-					</div>
+					<h1 class="h3 mb-4 text-gray-800">Panel</h1>
 
 				</div>
 				<!-- /.container-fluid -->
@@ -262,7 +211,7 @@
 			<footer class="sticky-footer bg-white">
 				<div class="container my-auto">
 					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; Super Drive 2019</span>
+						<span>Copyright &copy; Protechcorp 2019</span>
 					</div>
 				</div>
 			</footer>
@@ -285,46 +234,49 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">
-						<i class="fas fa-exclamation-triangle"></i>  Esta seguro de cerrar
-						sesion?
-					</h5>
+					<h5 class="modal-title" id="exampleModalLabel">¿Listo para
+						salir?</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">×</span>
 					</button>
 				</div>
-				<div class="modal-body">Seleccione "Cerrar sesion" a
-					continuacion para finalizar su sesion actual.</div>
+				<div class="modal-body">Seleccione "Cerrar sesión" a
+					continuación si está listo para finalizar su sesión actual.</div>
 				<div class="modal-footer">
-					<button class="btn btn-secondary" type="button"
-						data-dismiss="modal">Cancelar</button>
 					<form id="logoutForm" th:action="@{/logout}" method="post">
-						<button class="dropdown-item"
+						<button class="btn btn-danger"
 							onclick="document.getElementById('logoutForm').submit();"
-							type="submit">Cerrar Sesion</button>
+							type="submit">Cerrar</button>
+						<button class="btn btn-dark" type="button" data-dismiss="modal"
+							th:href="@{/categories/list}">Cancel</button>
 					</form>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+
+			<div class="card bg-dark text-white">
+				<div class="card-body">
+					<h5 class="card-title">Los sentimos , NO tienes permisos para
+						acceder a este recurso.</h5>
+					<a th:href="@{/panel}" class="btn btn-outline-danger"
+						role="button">Ir al inicio</a>
+
 				</div>
 			</div>
 		</div>
 	</div>
 
 	<!-- Bootstrap core JavaScript-->
-	<script src="vendor/jquery/jquery.min.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="/vendor/jquery/jquery.min.js"></script>
+	<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 	<!-- Core plugin JavaScript-->
-	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 	<!-- Custom scripts for all pages-->
-	<script src="js/sb-admin-2.min.js"></script>
-
-	<!-- Page level plugins -->
-	<script src="vendor/chart.js/Chart.min.js"></script>
-
-	<!-- Page level custom scripts -->
-	<script src="js/demo/chart-area-demo.js"></script>
-	<script src="js/demo/chart-pie-demo.js"></script>
+	<script src="/js/sb-admin-2.min.js"></script>
 
 </body>
 
