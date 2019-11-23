@@ -40,9 +40,9 @@
 				class="sidebar-brand d-flex align-items-center justify-content-center"
 				th:href="@{/panel}">
 				<div class="sidebar-brand-icon rotate-n-15">
-					<i class="fas fa-leaf"></i>
+					<i class="fas fa-cube"></i>
 				</div>
-				<div class="sidebar-brand-text mx-3">ProTechCorp</div>
+				<div class="sidebar-brand-text mx-3">Apolo</div>
 			</a>
 
 			<!-- Divider -->
@@ -54,11 +54,11 @@
 			</a></li>
 
 
-		<!-- Nav Item - Pages Collapse Menu -->
+			<!-- Nav Item - Pages Collapse Menu -->
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-toggle="collapse" data-target="#collapseTwo"
 				aria-expanded="true" aria-controls="collapseTwo"> <i
-					class="fas fa-fw fa-cog"></i> <span>Maintenace</span>
+					class="fas fa-fw fa-cog"></i> <span>Maintenance</span>
 			</a>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
@@ -66,7 +66,7 @@
 						<a class="collapse-item" th:href="@{/categories}">Category</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
@@ -79,14 +79,13 @@
 						<a class="collapse-item" th:href="@{/families}">Family</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<a class="collapse-item" th:href="@{/locations}">Location</a>
 					</div>
-				</div>
-				</li>
+				</div></li>
 
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-toggle="collapse" data-target="#collapseTwo"
@@ -95,18 +94,17 @@
 			</a>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
-					
+
 					<div class="bg-white py-2 collapse-inner rounded">
 						<a class="collapse-item" th:href="@{/products}">Product</a>
 					</div>
-					
-						<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-					data-parent="#accordionSidebar">
-					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/reports/locations}">Location</a>
-					</div>
-				</div>
-				</li>
+
+					<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+						data-parent="#accordionSidebar">
+						<div class="bg-white py-2 collapse-inner rounded">
+							<a class="collapse-item" th:href="@{/reports/locations}">Location</a>
+						</div>
+					</div></li>
 
 
 
@@ -137,57 +135,57 @@
 						<i class="fa fa-bars"></i>
 					</button>
 
-				<!-- Topbar Search -->
+					<!-- Topbar Search -->
 					<form th:action="@{/products/searchName}" method="get">
-					<div class="form-row align-items-center">
-						<div class="col-auto">
-							<Label class="sr-only" for="inputName">name</Label>
-							 <input
-								id="inputName" type="text" class="form-control bg-light border-0 small"
-								name="name" placeholder="Buscar por name..." aria-label="Search"
-								aria-describedby="basic-addon2">
-						</div>
-						<div class="col-auto">
-							<button class="btn btn-primary" type="submit">
+						<div class="form-row align-items-center">
+							<div class="col-auto">
+								<Label class="sr-only" for="inputName">Name</Label> <input
+									id="inputName" type="text"
+									class="form-control bg-light border-0 small" name="name"
+									placeholder="Search for name..." aria-label="Search"
+									aria-describedby="basic-addon2">
+							</div>
+							<div class="col-auto">
+								<button class="btn btn-primary" type="submit">
 									<i class="fas fa-search fa-sm"></i>
 								</button>
+							</div>
 						</div>
-					</div>
 					</form>
-					
+
 					<form th:action="@{/products/searchBrand}" method="get">
-					<div class="form-row align-items-center">
-						<div class="col-auto">
-							<Label class="sr-only" for="inputBrand">brand</Label>
-							 <input
-								id="inputBrand" type="text" class="form-control bg-light border-0 small"
-								name="brand" placeholder="Buscar por brand..." aria-label="Search"
-								aria-describedby="basic-addon2">
-						</div>
-						<div class="col-auto">
-							<button class="btn btn-primary" type="submit">
+						<div class="form-row align-items-center">
+							<div class="col-auto">
+								<Label class="sr-only" for="inputBrand">Brand</Label> <input
+									id="inputBrand" type="text"
+									class="form-control bg-light border-0 small" name="brand"
+									placeholder="Search for brand..." aria-label="Search"
+									aria-describedby="basic-addon2">
+							</div>
+							<div class="col-auto">
+								<button class="btn btn-primary" type="submit">
 									<i class="fas fa-search fa-sm"></i>
 								</button>
+							</div>
 						</div>
-					</div>
-					</form>	
-					
+					</form>
+
 					<form th:action="@{/products/searchDescription}" method="get">
-					<div class="form-row align-items-center">
-						<div class="col-auto">
-							<Label class="sr-only" for="inputDescription">description</Label>
-							 <input
-								id="inputDescription" type="text" class="form-control bg-light border-0 small"
-								name="description" placeholder="Buscar por decription..." aria-label="Search"
-								aria-describedby="basic-addon2">
-						</div>
-						<div class="col-auto">
-							<button class="btn btn-primary" type="submit">
+						<div class="form-row align-items-center">
+							<div class="col-auto">
+								<Label class="sr-only" for="inputDescription">Description</Label>
+								<input id="inputDescription" type="text"
+									class="form-control bg-light border-0 small" name="description"
+									placeholder="Search for description..." aria-label="Search"
+									aria-describedby="basic-addon2">
+							</div>
+							<div class="col-auto">
+								<button class="btn btn-primary" type="submit">
 									<i class="fas fa-search fa-sm"></i>
 								</button>
+							</div>
 						</div>
-					</div>
-					</form>		
+					</form>
 
 					<!-- Topbar Navbar -->
 					<ul class="navbar-nav ml-auto">
@@ -206,18 +204,21 @@
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <span
-								class="mr-2 d-none d-lg-inline text-gray-600 small">Eduardo Estela</span> 
+								class="mr-2 d-none d-lg-inline text-gray-600 small"><img
+									th:src="@{/img/logout.png}" width="30" height="30" alt="logo"
+									align="middle"></img></span>
+						</a>
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
 								aria-labelledby="userDropdown">
 								<a class="dropdown-item" href="#"> <i
-									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
+									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
 								</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="#" data-toggle="modal"
 									data-target="#logoutModal"> <i
 									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									Cerrar sesión
+									Sign out
 								</a>
 							</div></li>
 
@@ -230,9 +231,9 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 class="h3 mb-4 text-gray-800">Orden De Compra</h1>
+					<h1 class="h3 mb-4 text-gray-800">Order to buy</h1>
 
-					<a th:href="@{/products/new/}" class="btn btn-primary btn-xs">Nuevo</a>
+					<a th:href="@{/products/new/}" class="btn btn-primary btn-xs">New</a>
 
 					<hr class="sidebar-divider">
 
@@ -242,7 +243,7 @@
 								<th scope="col">#</th>
 								<th scope="col">Name</th>
 								<th scope="col">Description</th>
-								<th scope="col">Lpn</th>
+								<th scope="col">LPN</th>
 								<th scope="col">Brand</th>
 								<th scope="col">Quantity</th>
 								<th scope="col">Category</th>
@@ -264,8 +265,8 @@
 								<td th:text="${prod.family.name}">0.99</td>
 								<td th:text="${prod.lot.description}">0.99</td>
 								<td><a href="#" th:href="@{'/products/edit/' + ${prod.id}}"
-									th:text="'edit'" class="btn btn-primary">Editar</a></td>
-								
+									th:text="'edit'" class="btn btn-primary">Edit</a></td>
+
 							</tr>
 						</tbody>
 					</table>
@@ -281,7 +282,7 @@
 			<footer class="sticky-footer bg-white">
 				<div class="container my-auto">
 					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; Rosatel 2019</span>
+						<span>Copyright &copy; ProTechCorp 2019</span>
 					</div>
 				</div>
 			</footer>
@@ -304,23 +305,28 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">¿Listo para
-						salir?</h5>
+					<h5 class="modal-title" id="exampleModalLabel">Ready to sign
+						out?</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">×</span>
 					</button>
 				</div>
-				<div class="modal-body">Seleccione "Cerrar sesión" a
-					continuación si está listo para finalizar su sesión actual.</div>
+				<div class="modal-body">Select "Sign out" below if you are
+					ready to end your current session.</div>
 				<div class="modal-footer">
-					<button class="btn btn-secondary" type="button"
-						data-dismiss="modal">Cancelar</button>
-					<a class="btn btn-primary" th:href="@{/}">Cerrar sesión</a>
+					<form id="logoutForm" th:action="@{/logout}" method="post">
+						<button class="btn btn-danger"
+							onclick="document.getElementById('logoutForm').submit();"
+							type="submit">Sign out</button>
+						<button class="btn btn-dark" type="button" data-dismiss="modal"
+							th:href="@{/categories/list}">Cancel</button>
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
+
 
 	<!-- Bootstrap core JavaScript-->
 	<script src="/vendor/jquery/jquery.min.js"></script>

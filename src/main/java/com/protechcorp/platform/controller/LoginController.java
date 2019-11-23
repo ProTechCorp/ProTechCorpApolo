@@ -23,17 +23,13 @@ public class LoginController {
 		}
 
 		if (error != null) {
-			model.addAttribute("error",
-					"Error en el login: Nombre de usuario o contraseña incorrecta, por favor vuelva a intentarlo!");
+			model.addAttribute("error", "Login error: Incorrect username or password, please try again!");
 		}
 
 		if (logout != null) {
-			model.addAttribute("success", "Ha cerrado sesión con éxito!");
+			model.addAttribute("success", "You have successfully logged out!");
 		}
 
 		return "login";
 	}
 }
-
-
-

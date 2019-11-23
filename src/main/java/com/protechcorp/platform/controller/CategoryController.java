@@ -19,7 +19,6 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.protechcorp.platform.model.Category;
-import com.protechcorp.platform.model.Product;
 import com.protechcorp.platform.service.ICategoryService;
 
 @Controller
