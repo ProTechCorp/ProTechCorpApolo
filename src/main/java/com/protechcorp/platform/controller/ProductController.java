@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -54,6 +55,71 @@ public class ProductController {
 		model.addAttribute("products", products);
 		
 		return "product/product";
+	}
+	
+	@GetMapping("/searchName")
+	public String searchProduct(@RequestParam("name") String name,Model model) {
+		try {
+			if(!name.isEmpty()) {
+				List<Product> products=productService.fetchProductByName(name);
+				if(!products.isEmpty()) {
+					model.addAttribute("products",products);
+				}else {
+					model.addAttribute("info","No existe producto");
+					model.addAttribute("products",productService.findAll());
+				}
+				
+			}else {
+				model.addAttribute("info","Debe ingresar un producto");
+				model.addAttribute("products",productService.findAll());
+			}
+		} catch (Exception e) {
+			model.addAttribute("error",e.getMessage());
+		}
+		return "product/product";	
+	}
+	
+	@GetMapping("/searchBrand")
+	public String searchProductBrand(@RequestParam("brand") String brand,Model model) {
+		try {
+			if(!brand.isEmpty()) {
+				List<Product> products=productService.fetchProductByBrand(brand);
+				if(!products.isEmpty()) {
+					model.addAttribute("products",products);
+				}else {
+					model.addAttribute("info","No existe brand");
+					model.addAttribute("products",productService.findAll());
+				}
+				
+			}else {
+				model.addAttribute("info","Debe ingresar un brand");
+				model.addAttribute("products",productService.findAll());
+			}
+		} catch (Exception e) {
+			model.addAttribute("error",e.getMessage());
+		}
+		return "product/product";	
+	}
+	
+	@GetMapping("/searchDescription")
+	public String searchProductDescription(@RequestParam("description") String description,Model model) {
+		try {
+			if(!description.isEmpty()) {
+				List<Product> products=productService.fetchProductByDescription(description);
+				if(!products.isEmpty()) {
+					model.addAttribute("products",products);
+				}else {
+					model.addAttribute("info","No existe description");
+					model.addAttribute("products",productService.findAll());
+				}
+			}else {
+				model.addAttribute("info","Debe ingresar una description");
+				model.addAttribute("products",productService.findAll());
+			}
+		} catch (Exception e) {
+			model.addAttribute("error",e.getMessage());
+		}
+		return "product/product";	
 	}
 	
 	List<Category> loadCategories() throws Exception{
@@ -121,8 +187,11 @@ public class ProductController {
 			flash.addFlashAttribute("error","El producto no existe");
 			return "redirect:/products";
 		}
-		model.addAttribute("categories", loadCategories());
 		model.addAttribute("product", product);
+		model.addAttribute("categories", loadCategories());
+		model.addAttribute("families",loadFamilies());
+		model.addAttribute("lots",loadLots());
+		model.addAttribute("locations",loadLocations());
 		model.addAttribute("title","Edit Products");
 		return "product/form";
 	}

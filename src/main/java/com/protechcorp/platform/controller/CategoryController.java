@@ -1,6 +1,7 @@
 package com.protechcorp.platform.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,6 +35,28 @@ public class CategoryController {
 		List<Category> categories = categoryService.findAll();
 		model.addAttribute("categories", categories);
 		
+		return "category/category";
+	}
+	
+	@GetMapping("/search")
+	public String searchCategory(@RequestParam("name") String name,Model model) {
+		try {
+			if(!name.isEmpty()) {
+				List<Category> categories=categoryService.fetchCategoryByName(name);
+				if(!categories.isEmpty()) {
+					model.addAttribute("categories",categories);
+				}else {
+					model.addAttribute("info","No existe categoria");
+					model.addAttribute("families",categoryService.findAll());
+				}
+				
+			}else {
+				model.addAttribute("info","Debe ingresar un categoria");
+				model.addAttribute("categories",categoryService.findAll());
+			}
+		} catch (Exception e) {
+			model.addAttribute("error",e.getMessage());
+		}
 		return "category/category";
 	}
 	
@@ -63,6 +87,26 @@ public class CategoryController {
 		return "redirect:/categories";
 	}
 	
+	@GetMapping(value="/edit/{id}")
+	public String editCategory(@PathVariable(value="id") Long id, Model model, RedirectAttributes flash) throws Exception {
+		
+		Optional<Category> category;
+		
+		if(id>0) {
+			category= categoryService.findById(id);
+			
+			if(!category.isPresent()) {
+				flash.addFlashAttribute("error","la categoria no existe");
+				return "redirect:/categories";
+			}
+		}else {
+			flash.addFlashAttribute("error","La categoria no existe");
+			return "redirect:/categories";
+		}
+		model.addAttribute("category", category);
+		model.addAttribute("title","Edit Category");
+		return "category/form";
+	}
 	
 	@RequestMapping("/delete")
 	public String deleteCategory(Model model, @RequestParam("id") Long id) {

@@ -28,8 +28,7 @@ public class CategoryService implements ICategoryService {
 	@Override
 	public void deleteById(Long id) throws Exception {
 		
-		categoryRepository.deleteById(id);
-		
+		categoryRepository.deleteById(id);		
 	}
 
 	@Override
@@ -42,6 +41,12 @@ public class CategoryService implements ICategoryService {
 	public List<Category> findAll() throws Exception {
 		
 		return categoryRepository.findAll();
+	}
+
+	@Override
+	public List<Category> fetchCategoryByName(String name) throws Exception {
+		// TODO Auto-generated method stub
+		return categoryRepository.fetchCategoryByName(name);
 	}
 
 }

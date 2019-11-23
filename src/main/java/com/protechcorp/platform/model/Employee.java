@@ -2,19 +2,27 @@ package com.protechcorp.platform.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="users")
-public class User {
+@Table(name="employees")
+public class Employee {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@NotNull(message = "DNI cannot be empty")
+	@Column(name = "dni", nullable = false, length = 50)
+	private Long dni;
 	
 	@NotEmpty(message = "Firstname cannot be empty")
 	@Column(name = "firstname", nullable = false, length = 50)
@@ -23,14 +31,6 @@ public class User {
 	@NotEmpty(message = "Lastname cannot be empty")
 	@Column(name = "lastname", nullable = false, length = 50)
 	private String lastname;
-	
-	@NotEmpty(message = "email cannot be empty")
-	@Column(name = "email", nullable = false, length = 50)
-	private String email;
-	
-	@NotEmpty(message = "password cannot be empty")
-	@Column(name = "password", nullable = false, length = 50)
-	private String password;
 	
 	@NotEmpty(message = "Telephone cannot be empty")
 	@Column(name = "telephone", nullable = false, length = 50)
@@ -42,6 +42,14 @@ public class User {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Long getDni() {
+		return dni;
+	}
+
+	public void setDni(Long dni) {
+		this.dni = dni;
 	}
 
 	public String getFirstname() {
@@ -60,22 +68,6 @@ public class User {
 		this.lastname = lastname;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
 	public String getTelephone() {
 		return telephone;
 	}
@@ -84,5 +76,15 @@ public class User {
 		this.telephone = telephone;
 	}
 	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name = "location_id", nullable = false)
+	private Location location;
 	
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+
+	public Location getLocation() {
+		return location;
+	}
 }

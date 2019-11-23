@@ -13,4 +13,13 @@ public interface IProductRepository extends JpaRepository<Product, Long>{
 
 	@Query("SELECT p FROM Product p WHERE p.location.name=?1")
 	List<Product>findByLocation(String nameLocation);
+	
+	@Query("select p from Product p where p.name like %?1%")
+	List<Product> fetchProductByName(String name);
+	
+	@Query("select p from Product p where p.brand like %?1%")
+	List<Product> fetchProductByBrand(String brand);
+	
+	@Query("select p from Product p where p.description like %?1%")
+	List<Product> fetchProductByDescription(String description);
 }

@@ -48,7 +48,7 @@
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Dashboard -->
-			<li class="nav-item"><a class="nav-link" href="index.html">
+			<li class="nav-item"><a class="nav-link" th:href="@{/panel}">
 					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Panel</span>
 			</a></li>
 
@@ -65,7 +65,7 @@
 						<a class="collapse-item" th:href="@{/categories}">Category</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
@@ -78,14 +78,20 @@
 						<a class="collapse-item" th:href="@{/families}">Family</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<a class="collapse-item" th:href="@{/locations}">Location</a>
 					</div>
 				</div>
-				</li>
+
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/employees}">Employee</a>
+					</div>
+				</div></li>
 
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-toggle="collapse" data-target="#collapseTwo"
@@ -94,18 +100,17 @@
 			</a>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
-					
+
 					<div class="bg-white py-2 collapse-inner rounded">
 						<a class="collapse-item" th:href="@{/products}">Product</a>
 					</div>
-					
-						<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-					data-parent="#accordionSidebar">
-					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/reports/locations}">Location</a>
-					</div>
-				</div>
-				</li>
+
+					<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+						data-parent="#accordionSidebar">
+						<div class="bg-white py-2 collapse-inner rounded">
+							<a class="collapse-item" th:href="@{/reports/locations}">Location</a>
+						</div>
+					</div></li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
@@ -167,42 +172,107 @@
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <span
-								class="mr-2 d-none d-lg-inline text-gray-600 small">
-									Eduardo Estela Pardo</span> <img class="img-profile rounded-circle"
-								src="https://scontent.flim6-1.fna.fbcdn.net/v/t1.0-9/58419972_1779855598827469_8295426481195057152_n.jpg?_nc_cat=104&_nc_eui2=AeFhUwBo37z5YHwRlZMZ08YkQZDnDmOww_kWxU_LZCxOs8JaNF4e01e5cZe9u2bwxlrBDNpYbsT3BKGXsVXYD7JiNS5_aXBqMbvufSM0yosJ7A&_nc_ht=scontent.flim6-1.fna&oh=a162e0b8201efc4b948feea5933c85b5&oe=5D751D08">
+								class="mr-2 d-none d-lg-inline text-gray-600 small"><img
+									th:src="@{/img/logout.png}" width="30" height="30" alt="logo"
+									align="middle"></img></span>
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
 								aria-labelledby="userDropdown">
 								<a class="dropdown-item" href="#"> <i
-									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
+									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
 								</a>
-
-
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#" data-toggle="modal"
-									data-target="#logoutModal"> <i
+								<a class="dropdown-item" href="categories/index"
+									data-toggle="modal" data-target="#logoutModal"> <i
 									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									Cerrar sesiÃ³n
+									Sign out
 								</a>
 							</div></li>
 
 					</ul>
 
 				</nav>
-				<!-- End of Topbar -->
-
-				<!-- Begin Page Content -->
-				<div class="container-fluid">
-
-					<!-- Page Heading -->
-					<h1 class="h3 mb-4 text-gray-800">Panel</h1>
-
-				</div>
-				<!-- /.container-fluid -->
 
 			</div>
-			<!-- End of Main Content -->
+
+			<div class="container-fluid">
+
+				<!-- Page Heading -->
+				<div
+					class="d-sm-flex align-items-center justify-content-between mb-4">
+					<h1 class="h3 mb-0 text-gray-800">Welcome</h1>
+				</div>
+
+				<!-- Content Row -->
+				<div class="row">
+
+					<!-- Earnings (Monthly) Card Example -->
+
+
+					<!-- Earnings (Monthly) Card Example -->
+
+
+					<!-- Earnings (Monthly) Card Example -->
+
+
+					<!-- Pending Requests Card Example -->
+
+				</div>
+
+				<!-- Content Row -->
+
+				<div class="row">
+
+					<!-- Area Chart -->
+					<div class="col-xl-8 col-lg-7">
+						<div class="card shadow mb-4">
+							<!-- Card Header - Dropdown -->
+							<div
+								class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+								<h3 class="m-0 font-weight-bold text-primary">Our history</h3>
+							</div>
+							<!-- Card Body -->
+							<div class="card-body">
+								<div class="chart-area">
+									<h6>We born as a solution we start working on retail
+										companies were we learn a lot about the process and how the
+										inventory was mannage, we saw the problems and difficulties.
+
+										That is why we star with this proyect to help you even with
+										the recently born company or you with the multinational
+										compaany, we are just here to make your life much easier.</h6>
+									<img class="img-fluid px-3 px-sm-4 mt-3 mb-4"
+										style="width: 25rem;" src="img/undraw_posting_photo.svg"
+										alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Pie Chart -->
+
+				</div>
+
+				<!-- Content Row -->
+				<div class="row">
+
+					<!-- Content Column -->
+
+					<div class="col-lg-6 mb-4">
+
+						<!-- Illustrations -->
+
+						<!-- Approach -->
+
+					</div>
+				</div>
+
+			</div>
+
+
+
+
 
 			<!-- Footer -->
 			<footer class="sticky-footer bg-white">
@@ -225,39 +295,68 @@
 		class="fas fa-angle-up"></i>
 	</a>
 
+	<!-- ut Modal-->
+	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Ready to sign
+						out?</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">Select "Sign out" below if you are
+					ready to end your current session.</div>
+				<div class="modal-footer">
+					<form id="logoutForm" th:action="@{/logout}" method="post">
+						<button class="btn btn-danger"
+							onclick="document.getElementById('logoutForm').submit();"
+							type="submit">Sign out</button>
+						<button class="btn btn-dark" type="button" data-dismiss="modal"
+							th:href="@{/categories/list}">Cancel</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 	<!-- Logout Modal-->
 	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Â¿Listo para
-						salir?</h5>
+					<h5 class="modal-title" id="exampleModalLabel">Ready to sign
+						out?</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
-						<span aria-hidden="true">Ã—</span>
+						<span aria-hidden="true">×</span>
 					</button>
 				</div>
-				<div class="modal-body">Seleccione "Cerrar sesiÃ³n" a
-					continuaciÃ³n si estÃ¡ listo para finalizar su sesiÃ³n actual.</div>
+				<div class="modal-body">Select "Sign out" below if you are
+					ready to end your current session.</div>
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
-						data-dismiss="modal">Cancelar</button>
-					<a class="btn btn-primary" th:href="@{/}">Cerrar sesiÃ³n</a>
+						data-dismiss="modal">Cancel</button>
+					<a class="btn btn-primary" th:href="@{/}">Sign out</a>
 				</div>
 			</div>
 		</div>
 	</div>
 
 	<!-- Bootstrap core JavaScript-->
-	<script src="vendor/jquery/jquery.min.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="/vendor/jquery/jquery.min.js"></script>
+	<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 	<!-- Core plugin JavaScript-->
-	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 	<!-- Custom scripts for all pages-->
-	<script src="js/sb-admin-2.min.js"></script>
+	<script src="/js/sb-admin-2.min.js"></script>
 
 </body>
 
